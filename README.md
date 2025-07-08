@@ -1,15 +1,7 @@
-Dotfiles
 
-This repository contains my personal dotfiles, which are configuration files used to customize various aspects of my Linux environment. These aren't world-changing, but they serve as a consistent setup across my systems.
-
-Note: These dotfiles originally started off as the ml4w dots but have since significantly morphed into their own distinct configuration.
-
-What's Included:# Avery's Dotfiles
-
-My personal collection of configuration files for a cohesive and customized Linux experience on Hyprland.
 
 ![sceenshot](./screenshots/s1.png)
-![sceenshot](./screenshots/s2.png)
+
 
 ---
 
@@ -19,103 +11,85 @@ This repository contains my personal dotfiles. They are primarily built for a se
 
 These dotfiles began as a fork of the [ml4w dots](https://github.com/ml4w) but have since been heavily modified to suit my own workflow and preferences.
 
-## What's Included
+---
+![sceenshot](./screenshots/s2.png)
+## Hyprland
 
-This configuration manages the setup for the following applications:
+The core of this setup is the [Hyprland](https://hyprland.org/) Wayland compositor. The configuration is tailored for a multi-monitor setup and leverages `pywal` for dynamic color schemes based on the current wallpaper. It uses the `hy3` layout manager for tiling and includes several plugins for enhanced functionality:
 
-* **Window Manager**:
-    * [**Hyprland**](https://hyprland.org/): The core Wayland compositor.
-    * [**HyprPanel**](https://hyprpanel.com/): The main status bar and panel.
-    * [**AGS (A Gtk System)**](https://github.com/Aylur/ags): Used for various widgets like the sidebar and calendar.
+* **hyprbars**: For window title bars.
+* **hyprexpo**: For a workspace overview.
+* **hy3**: For automatic tiling.
 
-* **Terminals**:
-    * [**Alacritty**](https://alacritty.org/): A fast, GPU-accelerated terminal emulator.
-    * [**Kitty**](https://sw.kovidgoyal.net/kitty/): Another feature-rich terminal emulator.
+---
 
-* **Application Launchers & Theming**:
-    * [**Rofi**](https://github.com/davatorium/rofi): Used as an application launcher and window switcher.
-    * [**Pywal**](https://github.com/dylanaraps/pywal): Generates and applies color schemes based on the current wallpaper.
-    * **GTK 3 & 4 / Qt5 & Qt6**: Theming for graphical applications.
+## Keybindings
 
-* **Shell & Tools**:
-    * [**Oh My Posh**](https://ohmyposh.dev/): Provides custom, themeable shell prompts.
-    * [**Yazi**](https://github.com/sxyazi/yazi): A terminal file manager.
-    * [**Micro**](https://micro-editor.github.io/): A modern terminal-based text editor.
+| Keybinding | Action | Description |
+| --- | --- | --- |
+| `CTRL` + `ALT` + `delete` | `exec` | Kill problematic applications |
+| `ALT` + `tab` | `hyprexpo:expo` | Toggle expo view |
+| `SUPER` + `T` | `exec` | Open terminal |
+| `SUPER` + `ALT` + `T` | `exec` | Open terminal with tetris |
+| `SUPER` + `C` | `exec` | Start Ollama |
+| `SUPER` + `B` | `exec` | Launch Librewolf browser |
+| `SUPER` + `E` | `exec` | Open file manager (Dolphin) |
+| `SUPER` + `CTRL` + `E` | `exec` | Open emoji picker |
+| `SUPER` + `SPACE` | `exec` | Open application launcher (Rofi) |
+| `SUPER` + `ESCAPE` | `exec` | Open Mission Center |
+| `SUPER` + `A` | `exec` | Take a region screenshot |
+| `SUPER` + `K` | `exec` | Open Kate editor |
+| `SUPER` + `Y` | `exec` | Open Zed code editor |
+| `SUPER` + `M` | `movetoworkspacesilent`| Move to an empty workspace |
+| `SUPER` + `U` | `exec` | Open Obsidian |
+| `SUPER` + `Q` | `closewindow` | Close active window |
+| `SUPER` + `ALT_R` + `Q`| `killactive` | Force kill active window |
+| `SUPER` + `F` | `fullscreenstate` | Toggle fullscreen |
+| `SUPER` + `G` | `togglefloating` | Toggle floating for active window |
+| `SUPER` + `P` | `pseudo` | Toggle pseudotiling |
+| `SUPER` + `CTRL`+ `G` | `exec` | Toggle floating for all windows on a workspace |
+| `SUPER` + `SHIFT`+ `Z` | `swapsplit` | Swap split |
+| `SUPER` + `Z` | `togglesplit` | Toggle split |
+| `SUPER` + `left` | `movefocus` | Move focus left |
+| `SUPER` + `right` | `movefocus` | Move focus right |
+| `SUPER` + `up` | `movefocus` | Move focus up |
+| `SUPER` + `down` | `movefocus` | Move focus down |
+| `SUPER` + `mouse:272` | `movewindow` | Move window with mouse |
+| `SUPER` + `mouse:273` | `resizewindow`| Resize window with mouse |
+| `SUPER` + `mouse_down` | `workspace` | Go to previous workspace |
+| `SUPER` + `mouse_up` | `workspace` | Go to next workspace |
+| `SUPER`+`CTRL`+`mouse_up`|`workspace` | Go to next empty workspace |
+|`SUPER`+`SHIFT`+`right`|`resizeactive`| Increase window width |
+|`SUPER`+`SHIFT`+`left`|`resizeactive`| Decrease window width |
+|`SUPER`+`SHIFT`+`down`|`resizeactive`| Increase window height |
+|`SUPER`+`SHIFT`+`up`|`resizeactive`| Decrease window height |
+|`SUPER`+`ALT`+`up`|`movewindow`| Move window up |
+|`SUPER`+`ALT`+`down`|`movewindow`| Move window down |
+|`SUPER`+`ALT`+`left`|`movewindow`| Move window left |
+|`SUPER`+`ALT`+`right`|`movewindow`| Move window right |
+| `SUPER` + `ALT` + `P` | `exec` | Take a screenshot of the main display |
+| `SUPER` + `CTRL` + `P` | `exec` | Take a screenshot of the side display |
+| `SUPER` + `V` | `exec` | Open Rofi clipboard history |
+| `SUPER` + `L` | `exec` | Lock the screen |
+| `SUPER` + `(1-0)` | `movetoworkspace` | Move active window to workspace 1-10 |
+| `SUPER` + `SHIFT` + `Tab`|`workspace` | Go to previous workspace |
+| `SUPER` + `CTRL` + `(1-0)`|`exec` | Move all windows to workspace 1-10 |
 
-## Installation
+---
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/dotfiles.git](https://github.com/your-username/dotfiles.git) ~/.dotfiles
-    ```
+## HyprPanel
 
-2.  **Backup your existing configs:**
-    If you have existing configurations for the applications listed above, make sure to back them up first.
+The status bar is [HyprPanel](https://hyprpanel.com/), configured to be a floating and transparent bar at the top of the screen. It integrates with `pywal` and `matugen` for theming. The panel is organized into three sections:
 
-3.  **Symlink the files:**
-    The simplest way to install these dotfiles is to symbolically link them from the cloned repository to your `~/.config` directory.
-    ```bash
-    # Example for alacritty
-    ln -s ~/.dotfiles/.config/alacritty ~/.config/alacritty
+* **Left**: Clock, workspaces, and window title.
+* **Middle**: Notifications, media controls, and update notifications.
+* **Right**: System tray, volume, Bluetooth, and power controls.
 
-    # Example for hypr
-    ln -s ~/.dotfiles/.config/hypr ~/.config/hypr
-    ```
-    You can create a script to automate this for all the required directories.
+---
 
-## Core Dependencies
+## Other Key Components
 
-To use these dotfiles, you will need to have the following software installed:
-
-* **Hyprland** (and its dependencies)
-* **AGS**
-* **HyprPanel**
-* **Alacritty**
-* **Rofi**
-* **Pywal**
-* A Nerd Font (e.g., JetBrainsMono Nerd Font) for icons to display correctly.
-
-Please refer to the documentation of each respective project for installation instructions specific to your distribution.
-
-
-These dotfiles primarily configure:
-
-    ags: Configuration for the AGS (A Gtk System) widgets, including custom GTK-based widgets for system monitoring, a sidebar, and a calendar. This is also used as the foundation for HyprPanel.
-
-    alacritty: Settings for the Alacritty terminal emulator, including color schemes and keybindings.
-
-electron: Flags for running Electron applications.
-
-gtk-3.0 and gtk-4.0: Theming and appearance settings for GTK applications.
-
-hypr: Configuration for the Hyprland Wayland compositor, including custom keybindings, window rules, animations, and general behavior. This also contains scripts for managing power, wallpapers, and other system interactions.
-
-hyprpanel: A highly customizable panel built for Hyprland that provides useful widgets for displaying system information (volume, network, bluetooth, etc.) and quick access to system settings.
-
-kitty: Configuration for the Kitty terminal emulator, including color schemes.
-
-MangoHud: Overlay settings for monitoring game performance.
-
-micro: Bindings for the micro text editor.
-
-ohmyposh: Custom prompt themes for the shell.
-
-pacseek: Configuration for the Arch Linux package management TUI, including color schemes.
-
-qt5ct and qt6ct: Theming settings for Qt applications.
-
-rofi: Theming and setup for the Rofi application launcher and switcher.
-
-systemd: Adjustments to system and service management.
-
-Trolltech.conf: Qt configuration file.
-
-Vial: Configuration related to keyboard firmware.
-
-wal: Templates for pywal, a tool that generates color schemes from images.
-
-    xsettingsd: Configuration for the xsettingsd daemon.
-
-    yazi: Settings for the yazi command-line file manager.
-
-This collection aims to provide a cohesive and personalized user experience.
+* **Alacritty & Kitty**: Pre-configured terminal emulators.
+* **Rofi**: For application launching and window switching.
+* **Oh My Posh**: For a customized shell prompt.
+* **GTK & Qt**: Theming for graphical applications.
