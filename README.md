@@ -11,6 +11,8 @@ This repository contains my personal dotfiles. They are primarily built for a se
 
 These dotfiles began as a fork of the [ml4w dots](https://github.com/ml4w) but have since been heavily modified to suit my own workflow and preferences.
 
+We are using UWSM.
+
 ---
 
 ## Hyprland
