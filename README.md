@@ -9,7 +9,7 @@
 
 This repository contains my personal dotfiles. They are primarily built for a setup using the [Hyprland](https://hyprland.org/) Wayland compositor. The configuration aims for a clean, functional, and aesthetically pleasing desktop environment.
 
-These dotfiles began as a fork of the [ml4w dots](https://github.com/ml4w) but have since been heavily modified to suit my own workflow and preferences.
+These dotfiles began as a fork of the [ml4w dots](https://github.com/mylinuxforwork/dotfiles) but have since been heavily modified to suit my own workflow and preferences.
 
 We are using UWSM.
 
