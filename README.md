@@ -1,6 +1,7 @@
 
 
 ![sceenshot](./screenshots/s1.png)
+![sceenshot](./screenshots/s4.png)
 
 
 ---
@@ -31,13 +32,14 @@ The core of this setup is the [Hyprland](https://hyprland.org/) Wayland composit
 
 | Keybinding | Action | Description |
 | --- | --- | --- |
-|Right Click|Notifications|Open Hyprpanel Settings|
-|Right Click|Bluetooth|Open blueman-manager|
-|Right Click|Sound|Open Pavucontrol|
+| Right Click | Notifications | Open Hyprpanel Settings |
+| Right Click | Bluetooth | Open blueman-manager |
+| Right Click | Sound | Open Pavucontrol |
 | `CTRL` + `ALT` + `delete` | `exec` | Kill.  Left click to kill |
 | `ALT` + `tab` | `hyprexpo:expo` | Toggle expo view |
 | `SUPER` + `T` | `exec` | Open terminal |
 | `SUPER` + `ALT` + `T` | `exec` | Open terminal with tetris |
+| `SUPER` + `CTLR` + `T` |`exec`| Change theme |
 | `SUPER` + `C` | `exec` | Start Ollama |
 | `SUPER` + `B` | `exec` | Launch Librewolf browser |
 | `SUPER` + `E` | `exec` | Open file manager (Dolphin) |
