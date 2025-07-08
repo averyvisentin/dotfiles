@@ -25,7 +25,7 @@
   },
   "theme.bar.buttons.enableBorders": false,
   "wallpaper.pywal": true,
-  "wallpaper.image": "/home/avery/wallpaper/Dynamic_Wallpapers/EOS-SnowCappedMountain/EOS-SnowCappedMountain02.jpg",
+  "wallpaper.image": "/home/avery/wallpaper/Dynamic_Wallpapers/cyberpunk-01/cyberpunk-01-12.jpg",
   "theme.bar.menus.monochrome": false,
   "theme.matugen": true,
   "menus.media.displayTime": true,
@@ -172,5 +172,6 @@
   "theme.bar.buttons.media.spacing": "0.2em",
   "theme.matugen_settings.contrast": 1,
   "bar.windowtitle.leftClick": "",
-  "theme.bar.buttons.systray.enableBorder": false
+  "theme.bar.buttons.systray.enableBorder": false,
+  "theme.matugen_settings.mode": "dark"
 }
