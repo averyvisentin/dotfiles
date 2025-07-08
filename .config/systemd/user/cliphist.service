@@ -1,0 +1,14 @@
+[Unit]
+Description=Clipboard history “manager” for wayland
+Documentation=https://github.com/sentriz/cliphist
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
+ExecStart=bash -c "wl-paste --watch cliphist store"
+Restart=on-failure
+Slice=background-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target

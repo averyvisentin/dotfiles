@@ -1,0 +1,13 @@
+[Unit]
+Description=Hyprpanel - Customizable panel for Hyprland
+Documentation=https://github.com/hyprwm/hyprpanel
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=hyprpanel
+Slice=background-graphical.slice
+OOMPolicy=restart
+
+[Install]
+WantedBy=graphical-session.target

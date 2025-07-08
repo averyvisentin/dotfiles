@@ -1,0 +1,15 @@
+
+
+
+[Unit]
+Description=Clean Gamescope cache at login
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
+ExecStart=/bin/bash -c "$HOME/.config/hypr/scripts/cleanup.sh"
+Slice=session-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target

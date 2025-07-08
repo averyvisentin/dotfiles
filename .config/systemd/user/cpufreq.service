@@ -1,0 +1,12 @@
+[Unit]
+Description=set CPU freq to ondemand
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
+ExecStart=bash -c "cpupower frequency-set -g ondemand"
+
+
+[Install]
+WantedBy=graphical-session.target

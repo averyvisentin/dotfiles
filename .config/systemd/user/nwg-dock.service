@@ -1,0 +1,14 @@
+[Unit]
+Description=GTK3-based dock for Hyprland
+Documentation=https://github.com/nwg-piotr/nwg-dock-hyprland
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
+ExecStart=bash -c (nwg-dock-hyprland -p top -lp start -i 32 -x -d -c "rofi -show drun")
+Restart=on-failure
+Slice=background-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target

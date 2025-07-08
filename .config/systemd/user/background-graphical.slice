@@ -1,0 +1,4 @@
+[Slice]
+MemoryHigh=50%
+CPUWeight=30
+IOWeight=30

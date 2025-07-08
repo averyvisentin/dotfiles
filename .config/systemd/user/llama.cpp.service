@@ -1,0 +1,25 @@
+[Unit]
+Description=llama.cpp Server
+After=graphical-session.target
+
+[Service]
+Type=simple
+EnvironmentFile=/home/avery/.config/systemd/user/llama.env
+ExecStart=/usr/bin/llama-server
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=on-failure
+Environment="GGML_CUDA_FORCE_MMQ=1"
+Environment="GGML_CUDA_FORCE_CUBLAS=1"
+Environment="LLAMA_ARG_THREADS=-1"
+Environment="LLAMA_ARG_CTX_SIZE=8192"
+Environment="LLAMA_ARG_N_GPU_LAYERS=1"
+Environment="LLAMA_ARG_NO_KV_OFFLOAD=0"
+Environment="LLAMA_ARG_FLASH_ATTN=1"
+Environment="LLAMA_ARG_TEMP=0.7"
+Environment="LLAMA_ARG_TOP_K=100"
+Environment="LLAMA_ARG_TOP_P=0.1"
+Environment="LLAMA_ARG_COLOR=1"
+Environment="LLAMA_ARG_MODEL="/home/avery/.cache/llama.cpp/unsloth_DeepSeek-R1-0528-Qwen3-8B-GGUF_DeepSeek-R1-0528-Qwen3-8B-UD-Q4_K_XL.gguf""
+
+[Install]
+WantedBy=default.target

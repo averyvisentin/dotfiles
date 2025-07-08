@@ -1,0 +1,18 @@
+[Unit]
+Description=Ollama Service
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/ollama serve
+Restart=on-failure
+RestartSec=3
+RestartPreventExitStatus=1
+Type=exec
+PrivateTmp=yes
+NoNewPrivileges=yes
+EnvironmentFile=/home/avery/.config/systemd/user/ollama.env
+
+
+[Install]
+WantedBy=default.target
+

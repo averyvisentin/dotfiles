@@ -1,0 +1,11 @@
+[Unit]
+Description=Update DBus Activation Environment
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target

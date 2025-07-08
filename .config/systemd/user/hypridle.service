@@ -1,0 +1,13 @@
+[Unit]
+Description=hypridle is Hyprland’s idle management daemon.
+Documentation=https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
+ExecStart=bash -c "hypridle"
+Slice=background-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target

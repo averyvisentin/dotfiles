@@ -1,0 +1,15 @@
+[Unit]
+Description=Hyprland plugin manager
+Documentation=https://wiki.hyprland.org/
+# order startup after WM
+After=graphical-session.target
+
+[Service]
+Type=exec
+# Repurpose XDG Autostart filtering
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
+ExecStart=hyprpm update
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
