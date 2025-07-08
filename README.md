@@ -10,8 +10,6 @@ My personal collection of configuration files for a cohesive and customized Linu
 
 ![sceenshot](./screenshots/s1.png)
 ![sceenshot](./screenshots/s2.png)
-![sceenshot](./screenshots/s3.png)
-![sceenshot](./screenshots/s4.png)
 
 ---
 
