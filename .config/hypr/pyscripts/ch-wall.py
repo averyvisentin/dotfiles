@@ -73,8 +73,8 @@ def main():
         sys.exit(1)
 
     # --- Step 2: Run wal to generate and apply a new color scheme ---
-    if not run_command_silently(['wal', '-q', '-i', chosen_wallpaper]):
-        sys.exit(1)
+    #if not run_command_silently(['wal', '-q', '-i', chosen_wallpaper]):
+        #sys.exit(1)
 
 
 if __name__ == '__main__':
