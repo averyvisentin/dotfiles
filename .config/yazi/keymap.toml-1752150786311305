@@ -1,0 +1,9 @@
+# ~/.config/yazi/keymap.toml
+
+# The [[manager.prepend_key]] table adds a keybinding to the top of the list
+# for the "manager" mode, which is the main file browsing view.
+# This ensures it's processed before any default keybindings that might conflict.
+[[manager.prepend_key]]
+on   = [ "ctrl-q" ]
+exec = "quit"	# `exec` is the command that Yazi will execute when the key is pressed.
+help = "Quit Yazi"

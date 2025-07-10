@@ -109,8 +109,9 @@ alias shutdown='systemctl poweroff'
 alias v='$EDITOR'
 alias vim='$EDITOR'
 alias ts='~/.config/ml4w/scripts/snapshot.sh'
-alias wifi='nmtui'
-alias cleanup='~/.config/ml4w/scripts/cleanup.sh'
+
+
+
 #
 #OLLAMA
 #

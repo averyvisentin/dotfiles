@@ -1,0 +1,12 @@
+# ~/.config/yazi/keymap.toml
+
+# The [[manager.prepend_key]] table adds a keybinding to the top of the list
+# for the "manager" mode, which is the main file browsing view.
+# This ensures it's processed before any default keybindings that might conflict.
+
+#https://yazi-rs.github.io/docs/configuration/keymap
+
+[mgr]
+	append_keymap = [{on = "<C-q>", run = "quit", desc = "Quit Yazi"},
+					]
+	
