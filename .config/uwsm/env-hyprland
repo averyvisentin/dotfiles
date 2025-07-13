@@ -26,3 +26,4 @@ export PATH="/usr/lib/ccache/bin/:$PATH"
 export QT_STYLE_OVERRIDE="kvantum"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export GCM_CREDENTIAL_STORE=gpg
+export SWWW_TRANSITION=random
