@@ -99,6 +99,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 ###
 ###
 #they are in .config/uwsm/env-hyprland now
+export PATH=/home/avery/.cargo/bin/:$PATH
+export PATH=/home/avery/go/bin/:$PATH
+
 # -----------------------------------------------------
 # ALIASES
 # -----------------------------------------------------

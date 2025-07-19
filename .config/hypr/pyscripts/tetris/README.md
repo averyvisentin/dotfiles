@@ -1,1 +1,0 @@
-/home/avery/PROJECTS/python/terminal-tetris/README.md
