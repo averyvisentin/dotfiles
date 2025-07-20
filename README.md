@@ -1,7 +1,7 @@
 
 
-![sceenshot](./screenshots/s1.png)
-![sceenshot](./screenshots/s4.png)
+![screenshot](./screenshots/s1.png)
+![screenshot](./screenshots/s4.png)
 
 
 ---
@@ -86,7 +86,7 @@ The core of this setup is the [Hyprland](https://hyprland.org/) Wayland composit
 | `SUPER` + `CTRL` + `(1-0)`|`exec` | Move all windows to workspace 1-10 |
 
 
-![sceenshot](./screenshots/s3.png)
+![screenshot](./screenshots/s3.png)
 
 **You can also right click the notification icon to open the hyprpanel configurator
 ---
@@ -107,4 +107,5 @@ The status bar is [HyprPanel](https://hyprpanel.com/), configured to be a floati
 * **Rofi**: For application launching and window switching.
 * **Oh My Posh**: For a customized shell prompt.
 * **GTK & Qt**: Theming for graphical applications.
-![sceenshot](./screenshots/s2.png)
+![screenshot](./screenshots/s2.png)
+![screenshot](./screenshots/s5.png)
