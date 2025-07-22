@@ -1,14 +1,14 @@
-#            _              
-#    _______| |__  _ __ ___ 
+#            _
+#    _______| |__  _ __ ___
 #   |_  / __| '_ \| '__/ __|
-#  _ / /\__ \ | | | | | (__ 
+#  _ / /\__ \ | | | | | (__
 # (_)___|___/_| |_|_|  \___|
-#                           
+#
 
 # You can define your custom configuration by adding
-# files in ~/.config/zshrc 
+# files in ~/.config/zshrc
 # or by creating a folder ~/.config/zshrc/custom
-# with copies of files from ~/.config/zshrc 
+# with copies of files from ~/.config/zshrc
 # -----------------------------------------------------
 
 # -----------------------------------------------------
@@ -31,9 +31,9 @@
 #fi
 #
 #
-
+(cat ~/.cache/wal/sequences &
 #---------------------------------PROMPT------------------------------------------------#
-fastfetch
+fastfetch & wal --preview)
 # To customize prompt, https://ohmyposh.dev/docs/themes
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyo3.json)"
 #---------------------------------PROMPT------------------------------------------------#
@@ -41,7 +41,7 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyo3.json)"
 # -----------------------------------------------------
 # Pywal
 # -----------------------------------------------------
-#cat ~/.cache/wal/sequences
+
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -60,7 +60,7 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
+#zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
@@ -136,6 +136,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-
