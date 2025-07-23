@@ -25,7 +25,7 @@
   },
   "theme.bar.buttons.enableBorders": false,
   "wallpaper.pywal": true,
-  "wallpaper.image": "/home/avery/wallpaper/Dynamic_Wallpapers/ChromeOSGreens/ChromeOSGreens-2.png",
+  "wallpaper.image": "/home/avery/wallpaper/Dynamic_Wallpapers/Riverside/Riverside-1.jpg",
   "theme.bar.menus.monochrome": false,
   "theme.matugen": true,
   "menus.media.displayTime": true,
@@ -177,6 +177,23 @@
   "bar.media.truncation": false,
   "bar.media.truncation_size": 200,
   "bar.workspaces.workspaceMask": false,
-  "bar.windowtitle.class_name": false,
-  "theme.bar.buttons.monochrome": false
+  "bar.windowtitle.class_name": true,
+  "theme.bar.buttons.monochrome": false,
+  "bar.workspaces.applicationIconMap": {
+    "title:YouTube": "",
+    "class:[lL]ibrewolf": "",
+    "class:gjs": "",
+    "class:dev.zed.Zed": "󱩽",
+    "class:org.kde.Kate": "󰷈",
+    "window:terminal-tetris": "󱎓",
+    "class:[dD]olphin": "󰲂",
+    "title:[pP]ython": "󰌠"
+  },
+  "bar.workspaces.spacing": 0.8,
+  "bar.workspaces.applicationIconFallback": "󱂸",
+  "bar.windowtitle.icon": false,
+  "bar.windowtitle.title_map": [],
+  "bar.customModules.hypridle.onIcon": "󰶐",
+  "bar.customModules.hypridle.offIcon": "󱄄",
+  "bar.customModules.hyprsunset.onIcon": "󱩍"
 }
