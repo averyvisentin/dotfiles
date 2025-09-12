@@ -20,7 +20,7 @@ configuration {
 }
 
 /* ---- Load pywal colors (custom wal template) ---- */
-@theme "~/.cache/wal/colors-rofi-pywal"
+@theme "~/.cache/wal/colors-rofi-dark"
 
 * {
     bg0:    #212121F2;

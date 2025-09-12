@@ -31,9 +31,9 @@
 #fi
 #
 #
-(cat ~/.cache/wal/sequences &
+(cat ~/.cache/wal/sequences &)
 #---------------------------------PROMPT------------------------------------------------#
-fastfetch & wal --preview)
+fastfetch -l none
 # To customize prompt, https://ohmyposh.dev/docs/themes
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyo3.json)"
 #---------------------------------PROMPT------------------------------------------------#
@@ -99,9 +99,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 ###
 ###
 #they are in .config/uwsm/env-hyprland now
-export PATH=/home/avery/.cargo/bin/:$PATH
-export PATH=/home/avery/go/bin/:$PATH
-
 # -----------------------------------------------------
 # ALIASES
 # -----------------------------------------------------
@@ -124,15 +121,16 @@ alias ollama-stop="systemctl --user stop ollama.service"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
-        . "/usr/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$('/usr/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#@if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+ #   if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+ #       . "/usr/etc/profile.d/conda.sh"
+ #   else
+#        export PATH="/usr/bin:$PATH"
+ #   fi
+#fi
+#unset __conda_setup
 # <<< conda initialize <<<
+

@@ -5,17 +5,17 @@
     "*": {
       "left": [
         "clock",
+        "notifications",
         "workspaces",
         "windowtitle"
       ],
       "middle": [
-        "notifications",
-        "media",
-        "updates"
+        "media"
       ],
       "right": [
         "volume",
         "bluetooth",
+        "updates",
         "systray",
         "hypridle",
         "hyprsunset",
@@ -25,7 +25,7 @@
   },
   "theme.bar.buttons.enableBorders": false,
   "wallpaper.pywal": true,
-  "wallpaper.image": "/home/avery/wallpaper/Dynamic_Wallpapers/Riverside/Riverside-1.jpg",
+  "wallpaper.image": "/home/avery/wallpaper/Fantasy-Landscape3.png",
   "theme.bar.menus.monochrome": false,
   "theme.matugen": true,
   "menus.media.displayTime": true,
@@ -74,7 +74,7 @@
   "theme.bar.menus.menu.network.scaling": 80,
   "bar.customModules.hyprsunset.temperature": "3000k",
   "theme.bar.buttons.modules.hypridle.enableBorder": false,
-  "theme.bar.buttons.radius": "0.5em",
+  "theme.bar.buttons.radius": "0.2em",
   "theme.matugen_settings.variation": "standard_3",
   "theme.matugen_settings.scheme_type": "content",
   "bar.launcher.autoDetectIcon": false,
@@ -107,8 +107,8 @@
   "menus.transition": "crossfade",
   "tear": true,
   "terminal": "kitty",
-  "theme.font.name": "System-ui",
-  "theme.font.label": "System-ui Bold",
+  "theme.font.name": "Symbols Nerd Font",
+  "theme.font.label": "Symbols Nerd Font",
   "theme.font.size": "1.0rem",
   "bar.customModules.worldclock.tz": [
     "America/New_York"
@@ -162,8 +162,8 @@
   "bar.clock.middleClick": "hyprpanel toggleWindow settings-dialog",
   "theme.bar.buttons.spacing": "0.25em",
   "theme.bar.buttons.padding_y": "0.0rem",
-  "theme.bar.margin_top": "0.25em",
-  "theme.bar.margin_sides": "0.25em",
+  "theme.bar.margin_top": "0.2em",
+  "theme.bar.margin_sides": "0.2em",
   "bar.workspaces.scroll_speed": 2,
   "bar.windowtitle.truncation": true,
   "bar.windowtitle.label": true,
@@ -180,20 +180,26 @@
   "bar.windowtitle.class_name": true,
   "theme.bar.buttons.monochrome": false,
   "bar.workspaces.applicationIconMap": {
-    "title:YouTube": "",
     "class:[lL]ibrewolf": "",
     "class:gjs": "",
     "class:dev.zed.Zed": "󱩽",
     "class:org.kde.Kate": "󰷈",
     "window:terminal-tetris": "󱎓",
     "class:[dD]olphin": "󰲂",
-    "title:[pP]ython": "󰌠"
+    "title:[pP]ython": "󰌠",
+    "title:[hH]alloy": "󰭹",
+    "title:[oO]ctopi": ""
   },
   "bar.workspaces.spacing": 0.8,
   "bar.workspaces.applicationIconFallback": "󱂸",
   "bar.windowtitle.icon": false,
   "bar.windowtitle.title_map": [],
-  "bar.customModules.hypridle.onIcon": "󰶐",
-  "bar.customModules.hypridle.offIcon": "󱄄",
-  "bar.customModules.hyprsunset.onIcon": "󱩍"
+  "bar.customModules.hypridle.onIcon": "󰅶",
+  "bar.customModules.hypridle.offIcon": "󰾪",
+  "bar.customModules.hyprsunset.onIcon": "󱩍",
+  "theme.font.weight": 600,
+  "theme.bar.border_radius": "0.1em",
+  "theme.bar.buttons.workspaces.numbered_inactive_padding": "0.1em",
+  "theme.bar.buttons.workspaces.numbered_active_highlight_border": "0.1em",
+  "theme.bar.buttons.workspaces.numbered_active_highlight_padding": "0.2em"
 }
