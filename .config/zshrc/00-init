@@ -2,6 +2,14 @@
 # INIT
 # -----------------------------------------------------
 
+# To customize prompt, https://ohmyposh.dev/docs/themes
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyo3.json)"
+
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 # -----------------------------------------------------
 # Exports
 # -----------------------------------------------------

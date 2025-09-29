@@ -1,48 +1,42 @@
-# -----------------------------------------------------
-# CUSTOMIZATION
-# -----------------------------------------------------
-POSH=agnoster
+# Add in zsh plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 
-# -----------------------------------------------------
-# oh-myzsh themes: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# -----------------------------------------------------
-# ZSH_THEME=robbyrussell
+# Add in snippets
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
+#zinit snippet OMZP::aws
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::kubectx
+zinit snippet OMZP::command-not-found
 
-# -----------------------------------------------------
-# oh-myzsh plugins
-# -----------------------------------------------------
-plugins=(
-    git
-    sudo
-    web-search
-    archlinux
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    fast-syntax-highlighting
-    copyfile
-    copybuffer
-    dirhistory
-)
 
-# Set-up oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# Load completions
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit && compinit
 
-# -----------------------------------------------------
-# Set-up FZF key bindings (CTRL R for fuzzy history finder)
-# -----------------------------------------------------
-source <(fzf --zsh)
+zinit cdreplay -q
 
-# zsh history
+
+# History
+HISTSIZE=5000
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
 setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
-# -----------------------------------------------------
-# Prompt
-# -----------------------------------------------------
-# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"
-
-# Shipped Theme
-# eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
