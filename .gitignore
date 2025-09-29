@@ -1,3 +1,5 @@
 .config/systemd/
 *.bak
 *.kate-swp
+.config/mpd/log
+.config/mpd/database
