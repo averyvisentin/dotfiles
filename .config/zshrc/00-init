@@ -16,3 +16,4 @@ source "${ZINIT_HOME}/zinit.zsh"
 export TERM=kitty
 export EDITOR=micro
 export PYTHON_COLORS=1
+export PATH="/usr/lib/ccache/bin/:$PATH"

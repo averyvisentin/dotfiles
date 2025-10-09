@@ -5,8 +5,4 @@ eval "$(oh-my-posh init bash --config ~/jandedobbeleer.omp.json)"
 # -----------------------------------------------------
 # Exports
 # -----------------------------------------------------
-export EDITOR=kate
 export PATH="/usr/lib/ccache/bin/:$PATH"
-export QT_STYLE_OVERRIDE="kvantum"
-export QT_QPA_PLATFORMTHEME="qt5ct"
-
