@@ -20,5 +20,5 @@ export DXVK_ASYNC=1
 export GCM_CREDENTIAL_STORE=gpg
 export SWWW_TRANSITION=random
 export HYPRSHOT_DIR=~/Pictures/Screenshots
-export XCURSOR_THEME=Pop
+export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
