@@ -182,6 +182,7 @@ def main():
 
     # --- Step 5: Update hyprlock configuration
     update_hyprlock_conf(chosen_wallpaper)
+    sys.exit(0)
 
 
 if __name__ == "__main__":
