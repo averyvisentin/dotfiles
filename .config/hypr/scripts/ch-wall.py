@@ -163,24 +163,24 @@ def main():
     # Select a random wallpaper from the list
     chosen_wallpaper = random.choice(all_wallpapers)
 
-    # --- Step 1: Generate matugen and pywal colors using hyprpanel ---
-    # if not run_command_silently(['hyprpanel', 'setWallpaper', chosen_wallpaper]):
-    #    sys.exit(1)
-
-    # --- Step 2: Run sww to set wallpaper since hyprpanel is inconsistent
+    # --- Step 1: Run sww to set wallpaper since hyprpanel is inconsistent
     if not run_command_silently(["swww", "img", chosen_wallpaper]):
         sys.exit(1)
 
+    # --- Step 2: Run wal to set colors
     if not run_command_silently(["wal", "-i", chosen_wallpaper, "-n", "--cols16"]):
         sys.exit(1)
 
+    # --- Step 3: Convert pywal colors to vicinae theme
     if not convert_pywal_to_vicinae(pywal_file, vicinae_theme_file):
         # Exit with a non-zero status code if conversion failed
         sys.exit(1)
 
-    if not run_command_silently(["vicinae", "'vicinae://theme/set/pywal-theme.json'"]):
+    # --- Step 4: Set vicinae theme
+    if not run_command_silently(["vicinae", "vicinae://theme/set/pywal-theme.json"]):
         sys.exit(1)
 
+    # --- Step 5: Update hyprlock configuration
     update_hyprlock_conf(chosen_wallpaper)
 
 
