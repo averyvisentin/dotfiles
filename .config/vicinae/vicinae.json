@@ -1,0 +1,22 @@
+{
+    "closeOnFocusLoss": true,
+    "faviconService": "google",
+    "font": {
+        "size": 10
+    },
+    "keybinding": "default",
+    "keybinds": {
+    },
+    "popToRootOnClose": true,
+    "rootSearch": {
+        "searchFiles": true
+    },
+    "theme": {
+        "name": "pywal-theme.json"
+    },
+    "window": {
+        "csd": false,
+        "opacity": 0.95,
+        "rounding": 10
+    }
+}
