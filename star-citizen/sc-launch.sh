@@ -1,0 +1,1 @@
+/home/avery/Games/star-citizen/sc-launch.sh
