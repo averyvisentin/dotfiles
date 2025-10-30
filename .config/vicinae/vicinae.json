@@ -12,11 +12,12 @@
         "searchFiles": true
     },
     "theme": {
+        "iconTheme": "COSMIC",
         "name": "pywal-theme.json"
     },
     "window": {
-        "csd": false,
-        "opacity": 0.95,
+        "csd": true,
+        "opacity": 0.9,
         "rounding": 10
     }
 }
