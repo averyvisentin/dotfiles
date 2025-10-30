@@ -42,7 +42,7 @@ The core of this setup is the [Hyprland](https://hyprland.org/) Wayland composit
 | Right Click | Notifications | Open Hyprpanel Settings |
 | Right Click | Bluetooth | Open blueman-manager |
 | Right Click | Sound | Open Pavucontrol |
-| `CTRL` + `ALT` + `delete` | `exec` | Kill.  Left click to kill |
+| `CTRL` + `ALT` + `delete` | `exec` | Kill.  Left click to kill. |
 | `ALT` + `tab` | `hyprexpo:expo` | Toggle expo view |
 | `SUPER` + `T` | `exec` | Open terminal |
 | `SUPER` + `ALT` + `T` | `exec` | Open terminal with tetris |

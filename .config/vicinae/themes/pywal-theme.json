@@ -5,15 +5,15 @@
   "name": "Pywal",
   "description": "Automatically generated from Pywal",
   "palette": {
-    "background": "#0b1b19",
-    "foreground": "#c2c6c5",
-    "blue": "#726858",
-    "green": "#515653",
-    "magenta": "#967b59",
-    "orange": "#877760",
-    "purple": "#C9A577",
-    "red": "#454b48",
-    "yellow": "#655948",
-    "cyan": "#5a6260"
+    "background": "#090f15",
+    "foreground": "#c1c3c4",
+    "blue": "#12677c",
+    "green": "#025471",
+    "magenta": "#036885",
+    "orange": "#4F788D",
+    "purple": "#058BB2",
+    "red": "#03516c",
+    "yellow": "#3b5a69",
+    "cyan": "#0c7d9b"
   }
 }

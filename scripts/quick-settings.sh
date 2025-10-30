@@ -1,21 +1,21 @@
 #!/bin/bash
 
 # Define the menu items (each on a new line)
-MENU_ITEMS="
-pkill
+MENU_ITEMS="pkill
+files
 hyprland-wiki
 edit-dotfiles
 change-theme
 open-app-info
 btop
 nvtop
-htop
-"
+nv-readme
+htop"
 
 # Use dmenu to present the options and capture the user's choice.
 # -l 10: sets the number of lines to display
 # -p "Run Command:": sets the prompt text
-CHOICE=$(echo -e "$MENU_ITEMS" | vicinae dmenu -p "Select a shortcut")
+CHOICE=$(echo -e "$MENU_ITEMS" | rofi -dmenu -p "Select a shortcut")
 
 # Check which option the user selected
 case "$CHOICE" in
@@ -46,7 +46,7 @@ case "$CHOICE" in
             uwsm app -s b -- kitty -e "htop"
         ;;
         pkill) # we need to revisit this, we'd like a list of processes to choose from. because I'm getting the names 'wrong' so we need to fix it
-            PROCESS_NAME=$(echo "" | vicinae dmenu -p "Pkill (Type Process Name):")
+            PROCESS_NAME=$(echo "" | rofi -dmenu -p "Pkill (Type Process Name):")
 
             if [ -n "$PROCESS_NAME" ]; then
                 notify-send "Pkill Menu" "Attempting to kill processes matching: $PROCESS_NAME"
@@ -54,6 +54,12 @@ case "$CHOICE" in
             else
                 notify-send "pkill" "No process name entered. Aborting pkill."
             fi
+        ;;
+        files)
+            rofi -show filebrowser -config .config/rofi/config.rasi -p "Shift+Enter to open"
+        ;;
+        nv-readme)
+            sh -e "$HOME/dotfiles/scripts/nvidia-readme.sh"
         ;;
     *)
         # Handle empty selection or pressing Escape

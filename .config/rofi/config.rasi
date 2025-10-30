@@ -16,6 +16,9 @@ configuration {
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
     window-format:              "{w} · {c} · {t}";
+    normal-window:              true;
+    terminal:                   "kitty";
+    file-browser-show-hidden:   true;
 
 }
 
@@ -118,5 +121,3 @@ element-icon {
 element-text {
     text-color: inherit;
 }
-
-
