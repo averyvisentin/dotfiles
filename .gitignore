@@ -3,3 +3,4 @@
 *.kate-swp
 .config/mpd/log
 .config/mpd/database
+.config/vicinae/themes/pywal-theme.json

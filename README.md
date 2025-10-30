@@ -10,19 +10,26 @@
 
 This repository contains my personal dotfiles. They are primarily built for a setup using the [Hyprland](https://hyprland.org/) Wayland compositor. The configuration aims for a clean, functional, and aesthetically pleasing desktop environment.
 
-These dotfiles began as a fork of the [ml4w dots](https://github.com/mylinuxforwork/dotfiles) but have since been heavily modified to suit my own workflow and preferences.
+These dotfiles began as a fork of the [ml4w dots](https://github.com/mylinuxforwork/dotfiles) but have since been heavily modified to suit my own workflow and preferences. Inspiration is being drawn from everywhere.
 
-We are using UWSM.
+Vicinae and hyprpanel are doing a lot of the heavy lifting in this setup.
+
+We are using UWSM so you'll be seeing a lot of ```uwsm app --``` and ```uwsm app -s b --```. I like uwsm because it keeps everything managed by systemd so they can be easily managed as slices.
+
+Very much a work in progress, but I hope you find it useful. I try to keep it up to date with the latest versions hyprland. README can always use some love though.
 
 ---
 
 ## Hyprland
 
-The core of this setup is the [Hyprland](https://hyprland.org/) Wayland compositor. The configuration is tailored for a multi-monitor setup and leverages `pywal` for dynamic color schemes based on the current wallpaper. It uses the `hy3` layout manager for tiling and includes several plugins for enhanced functionality:
+The core of this setup is the [Hyprland](https://hyprland.org/) Wayland compositor. The configuration is tailored for a multi-monitor setup and leverages `pywal` for dynamic color schemes based on the current wallpaper.
 
 * **hyprbars**: For window title bars.
 * **hyprexpo**: For a workspace overview.
-* **hy3**: For automatic tiling.
+* **hyprpanel**: For general shell stuff, notifications, top bar, **swww wallpapering**, **matugen colours**
+* **vicinae**: To launch apps, act as clipboard (wl-paste), **dmenu** scripts
+* **hyprlock and hypridle**: To handle lock screen and idle state.
+* **ly**: For the login manager.
 
 ---
 
@@ -79,7 +86,7 @@ The core of this setup is the [Hyprland](https://hyprland.org/) Wayland composit
 |`SUPER`+`ALT`+`right`|`movewindow`| Move window right |
 | `SUPER` + `ALT` + `P` | `exec` | Take a screenshot of the main display |
 | `SUPER` + `CTRL` + `P` | `exec` | Take a screenshot of the side display |
-| `SUPER` + `V` | `exec` | Open Rofi clipboard history |
+| `SUPER` + `V` | `exec` | Open vicinae clipboard history |
 | `SUPER` + `L` | `exec` | Lock the screen |
 | `SUPER` + `(1-0)` | `movetoworkspace` | Move active window to workspace 1-10 |
 | `SUPER` + `SHIFT` + `Tab`|`workspace` | Go to previous workspace |
@@ -104,7 +111,6 @@ The status bar is [HyprPanel](https://hyprpanel.com/), configured to be a floati
 ## Other Key Components
 
 * **Alacritty & Kitty**: Pre-configured terminal emulators.
-* **Rofi**: For application launching and window switching.
 * **Oh My Posh**: For a customized shell prompt.
 * **GTK & Qt**: Theming for graphical applications.
 ![screenshot](./screenshots/s2.png)

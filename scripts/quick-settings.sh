@@ -1,13 +1,15 @@
 #!/bin/bash
 
 # Define the menu items (each on a new line)
-MENU_ITEMS="pkill
+MENU_ITEMS="
+pkill
 hyprland-wiki
 edit-dotfiles
 change-theme
+open-app-info
 btop
 nvtop
-open-app-info
+htop
 "
 
 # Use dmenu to present the options and capture the user's choice.
@@ -40,7 +42,10 @@ case "$CHOICE" in
         nvtop)
             uwsm app -s b -- kitty -e "nvtop"
         ;;
-        pkill)
+        htop)
+            uwsm app -s b -- kitty -e "htop"
+        ;;
+        pkill) # we need to revisit this, we'd like a list of processes to choose from. because I'm getting the names 'wrong' so we need to fix it
             PROCESS_NAME=$(echo "" | vicinae dmenu -p "Pkill (Type Process Name):")
 
             if [ -n "$PROCESS_NAME" ]; then
