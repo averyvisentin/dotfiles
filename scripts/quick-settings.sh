@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # Define the menu items (each on a new line)
-MENU_ITEMS="hyprland-wiki
+MENU_ITEMS="pkill
+hyprland-wiki
 edit-dotfiles
 change-theme
 btop
 nvtop
-open-app-info"
+open-app-info
+"
 
 # Use dmenu to present the options and capture the user's choice.
 # -l 10: sets the number of lines to display
@@ -16,27 +18,19 @@ CHOICE=$(echo -e "$MENU_ITEMS" | vicinae dmenu -p "Select a shortcut")
 # Check which option the user selected
 case "$CHOICE" in
         hyprland-wiki)
-        # --- Command for 'hyprland wiki' ---
-        exec uwsm app -- zen-browser --new-window "wiki.hyprland.org/"
+            uwsm app -- zen-browser --new-window "wiki.hyprland.org/"
         ;;
         edit-dotfiles)
-        # --- Command for 'edit dotfiles' ---
-        uwsm app -- zeditor -n ~/dotfiles/
+            uwsm app -- zeditor -n ~/dotfiles/
         ;;
         btop)
-        # --- Command for 'btop' ---
-        # Example: Replace the echo/notify-send with 'exec gnome-control-center &' or your preferred settings app.
-        uwsm app -s b -- kitty -e "btop"
+            uwsm app -s b -- kitty -e "btop"
         ;;
         change-theme)
-        # --- Command for 'change theme' ---
-        # Example: Replace the echo/notify-send with 'exec qalculate-gtk &' or your preferred calculator app.
-        uwsm app -s b -- python $HOME/.config/hypr/scripts/ch-wall.py
+            uwsm app -s b -- python $HOME/.config/hypr/scripts/ch-wall.py
         ;;
         open-app-info)
-        # --- Command for 'hyprctl clients' ---
-        #
-        uwsm app -s b -- kitty -T "hyprctl-clients" sh -c '
+            uwsm app -s b -- kitty -T "hyprctl-clients" sh -c '
                             echo "--- Running Hyprctl clients ---";
                             hyprctl clients; # <-- Your command is now here
                             echo "--- Command finished. Press Enter to close. ---";
@@ -44,9 +38,17 @@ case "$CHOICE" in
                         ' &
         ;;
         nvtop)
-        # --- Command for 'nvtop' ---
-        # Example: Replace the echo/notify-send with 'exec gnome-control-center &' or your preferred settings app.
-        uwsm app -s b -- kitty -e "nvtop"
+            uwsm app -s b -- kitty -e "nvtop"
+        ;;
+        pkill)
+            PROCESS_NAME=$(echo "" | vicinae dmenu -p "Pkill (Type Process Name):")
+
+            if [ -n "$PROCESS_NAME" ]; then
+                notify-send "Pkill Menu" "Attempting to kill processes matching: $PROCESS_NAME"
+                pkill -f "$PROCESS_NAME"
+            else
+                notify-send "pkill" "No process name entered. Aborting pkill."
+            fi
         ;;
     *)
         # Handle empty selection or pressing Escape
