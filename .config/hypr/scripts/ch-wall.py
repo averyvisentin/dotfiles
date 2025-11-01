@@ -149,7 +149,7 @@ def main():
     """
     # os.path.expanduser expands the '~' to the full home directory path
     pywal_file = "~/.cache/wal/colors.json"
-    vicinae_theme_file = "~/dotfiles/.config/vicinae/themes/pywal-theme.json"
+    vicinae_theme_file = "~/dotfiles/.config/vicinae/themes/pywal-theme.toml"
     wallpaper_dir = os.path.expanduser("~/wallpaper")
 
     if not os.path.isdir(wallpaper_dir):
@@ -161,24 +161,21 @@ def main():
         sys.exit(1)
 
     # Select a random wallpaper from the list
-    chosen_wallpaper = random.choice(all_wallpapers)
-
-    # --- Step 1: Run sww to set wallpaper since hyprpanel is inconsistent
-    if not run_command_silently(["swww", "img", chosen_wallpaper]):
-        sys.exit(1)
+    chosen_wallpaper = random.choice(
+        all_wallpapers
+    )  # --- Step 1: Run sww to set wallpaper since hyprpanel is inconsistent
+    run_command_silently(["swww", "img", chosen_wallpaper])
 
     # --- Step 2: Run wal to set colors
-    if not run_command_silently(["wal", "-i", chosen_wallpaper, "-n", "--cols16"]):
-        sys.exit(1)
+    run_command_silently(["wal", "-i", chosen_wallpaper, "-n", "--cols16"])
 
+    # run_command_silently(["matugen", "image", chosen_wallpaper, "-m", "dark"])
+    run_command_silently(["hyprpanel", "setWallpaper", chosen_wallpaper])
     # --- Step 3: Convert pywal colors to vicinae theme
-    if not convert_pywal_to_vicinae(pywal_file, vicinae_theme_file):
-        # Exit with a non-zero status code if conversion failed
-        sys.exit(1)
+    convert_pywal_to_vicinae(pywal_file, vicinae_theme_file)
 
     # --- Step 4: Set vicinae theme
-    if not run_command_silently(["vicinae", "vicinae://theme/set/pywal-theme.json"]):
-        sys.exit(1)
+    run_command_silently(["vicinae", "vicinae://theme/set/pywal-theme.toml"])
 
     # --- Step 5: Update hyprlock configuration
     update_hyprlock_conf(chosen_wallpaper)

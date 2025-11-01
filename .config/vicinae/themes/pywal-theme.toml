@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "appearance": "dark",
+  "icon": "",
+  "name": "Pywal",
+  "description": "Automatically generated from Pywal",
+  "palette": {
+    "background": "#0e1d20",
+    "foreground": "#c2c6c7",
+    "blue": "#1d4a45",
+    "green": "#1e3c39",
+    "magenta": "#22554e",
+    "orange": "#265C5E",
+    "purple": "#2E7268",
+    "red": "#113634",
+    "yellow": "#1c4546",
+    "cyan": "#364b45"
+  }
+}

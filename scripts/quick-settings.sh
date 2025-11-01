@@ -7,15 +7,13 @@ hyprland-wiki
 edit-dotfiles
 change-theme
 open-app-info
-btop
-nvtop
-nv-readme
-htop"
+system-monitors
+nv-readme"
 
 # Use dmenu to present the options and capture the user's choice.
 # -l 10: sets the number of lines to display
 # -p "Run Command:": sets the prompt text
-CHOICE=$(echo -e "$MENU_ITEMS" | rofi -dmenu -p "Select a shortcut")
+CHOICE=$(echo -e "$MENU_ITEMS" | rofi -window-title "rofi" -click-to-exit true -dmenu -p "Select a shortcut" -no-lazy-grab -normal-window)
 
 # Check which option the user selected
 case "$CHOICE" in
@@ -45,6 +43,32 @@ case "$CHOICE" in
         htop)
             uwsm app -s b -- kitty -e "htop"
         ;;
+        # --- New Submenu Handling ---
+                system-monitors)
+                    # Define the submenu items
+                    MONITOR_ITEMS="btop
+nvtop
+htop"
+
+                    # Present the submenu options
+                    MONITOR_CHOICE=$(echo -e "$MONITOR_ITEMS" | rofi -dmenu -p "Select Monitor")
+
+                    # Execute the selected monitor
+                    case "$MONITOR_CHOICE" in
+                        btop)
+                            uwsm app -s b -- kitty -e "btop"
+                            ;;
+                        nvtop)
+                            uwsm app -s b -- kitty -e "nvtop"
+                            ;;
+                        htop)
+                            uwsm app -s b -- kitty -e "htop"
+                            ;;
+                        *)
+                            # Handle empty selection or pressing Escape in the submenu
+                            ;;
+                    esac
+                ;;
         pkill) # we need to revisit this, we'd like a list of processes to choose from. because I'm getting the names 'wrong' so we need to fix it
             PROCESS_NAME=$(echo "" | rofi -dmenu -p "Pkill (Type Process Name):")
 
