@@ -24,8 +24,8 @@
     }
   },
   "theme.bar.buttons.enableBorders": false,
-  "wallpaper.pywal": false,
-  "wallpaper.image": "/home/avery/wallpaper/Dynamic_Wallpapers/ChromeOSYellows/ChromeOSYellows-1.png",
+  "wallpaper.pywal": true,
+  "wallpaper.image": "/home/avery/wallpaper/Dynamic_Wallpapers/Monterey/Monterey03.jpg",
   "theme.bar.menus.monochrome": false,
   "theme.matugen": true,
   "menus.media.displayTime": true,
@@ -204,5 +204,6 @@
   "theme.bar.buttons.workspaces.numbered_active_highlight_padding": "0.2em",
   "bar.windowtitle.rightClick": "rofi -show window",
   "menus.dashboard.shortcuts.left.shortcut4.command": "vicinae toggle",
-  "menus.dashboard.shortcuts.left.shortcut2.command": "spotify"
+  "menus.dashboard.shortcuts.left.shortcut2.command": "spotify",
+  "theme.bar.enableShadow": false
 }

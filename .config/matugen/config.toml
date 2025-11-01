@@ -27,4 +27,12 @@ output_path = '~/.config/matugen/colors/secondary'
 
 [templates.matugen]
 input_path = '~/.config/matugen/templates/Matugen.colors'
-output_path = '~/.config/matugen/Matugen.colors'
+output_path = '~/.local/share/color-schemes/Matugen.colors'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors-matugen.conf'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
