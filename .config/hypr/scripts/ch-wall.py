@@ -84,72 +84,11 @@ def update_hyprlock_conf(wallpaper_path):
         f.writelines(new_lines)
 
 
-def convert_pywal_to_vicinae(pywal_path: str, output_path: str) -> bool:
-    """
-    Convert a Pywal colors.json file to a Vicinae-compatible theme.
-
-    This function attempts the conversion silently, returning True on success
-    and False on any failure (file not found, bad JSON, missing key).
-
-    Args:
-        pywal_path (str): Path to the Pywal `colors.json` file.
-        output_path (str): Destination file path for the Vicinae theme JSON.
-
-    Returns:
-        bool: True if conversion was successful, False otherwise.
-    """
-    try:
-        # Ensure paths are expanded for ~ (home directory)
-        pywal_path = os.path.expanduser(pywal_path)
-        output_path = os.path.expanduser(output_path)
-
-        # Load Pywal color definitions
-        with open(pywal_path, "r", encoding="utf-8") as f:
-            pywal: Dict[str, Any] = json.load(f)
-
-        # Map Pywal colors to Vicinae theme format
-        vicinae_theme: Dict[str, Any] = {
-            "version": "1.0.0",
-            "appearance": "dark",
-            "icon": "",
-            "name": "Pywal",
-            "description": "Automatically generated from Pywal",
-            "palette": {
-                "background": pywal["special"]["background"],
-                "foreground": pywal["special"]["foreground"],
-                "blue": pywal["colors"]["color4"],
-                "green": pywal["colors"]["color2"],
-                "magenta": pywal["colors"]["color5"],
-                "orange": pywal["colors"]["color11"],
-                "purple": pywal["colors"]["color13"],
-                "red": pywal["colors"]["color1"],
-                "yellow": pywal["colors"]["color3"],
-                "cyan": pywal["colors"]["color6"],
-            },
-        }
-
-        # Ensure output directory exists
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
-        # Write theme file (overwrites if already exists)
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(vicinae_theme, f, indent=2)
-
-        # Success - no output
-        return True
-
-    except (FileNotFoundError, KeyError, json.JSONDecodeError, Exception):
-        # Failures are handled silently
-        return False
-
-
 def main():
     """
     Main function to set a random wallpaper and update system colors silently.
     """
-    # os.path.expanduser expands the '~' to the full home directory path
-    pywal_file = "~/.cache/wal/colors.json"
-    vicinae_theme_file = "~/dotfiles/.config/vicinae/themes/pywal-theme.toml"
+
     wallpaper_dir = os.path.expanduser("~/wallpaper")
 
     if not os.path.isdir(wallpaper_dir):
@@ -182,12 +121,7 @@ def main():
             "expressive",
         ]
     )
-    run_command_silently(["wal", "--cols16", "-i", chosen_wallpaper, "-n"])
-    # --- Step 3: Convert pywal colors to vicinae theme
-    # convert_pywal_to_vicinae(pywal_file, vicinae_theme_file)
-
-    # --- Step 4: Set vicinae theme
-    # run_command_silently(["vicinae", "vicinae://theme/set/pywal-theme.toml"])
+    # run_command_silently(["wal", "-n", "--cols16", "-i", chosen_wallpaper])
 
     # --- Step 5: Update hyprlock configuration
     update_hyprlock_conf(chosen_wallpaper)

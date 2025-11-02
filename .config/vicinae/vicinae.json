@@ -12,8 +12,8 @@
         "searchFiles": true
     },
     "theme": {
-        "iconTheme": "COSMIC",
-        "name": "tokyo-night"
+        "iconTheme": "Hicolor",
+        "name": "matugen"
     },
     "window": {
         "csd": true,
