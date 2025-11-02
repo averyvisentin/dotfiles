@@ -4,3 +4,6 @@
 .config/mpd/log
 .config/mpd/database
 .config/vicinae/themes/pywal-theme.json
+.config/gtk-3.0/colors.css
+.config/gtk-4.0/colors.css
+.config/hypr/colors.conf
