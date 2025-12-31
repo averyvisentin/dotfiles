@@ -1,8 +1,9 @@
 {
-    "closeOnFocusLoss": true,
+    "closeOnFocusLoss": false,
+    "considerPreedit": false,
     "faviconService": "google",
     "font": {
-        "size": 10
+        "size": 10.5
     },
     "keybinding": "default",
     "keybinds": {
@@ -12,12 +13,11 @@
         "searchFiles": true
     },
     "theme": {
-        "iconTheme": "Hicolor",
         "name": "matugen"
     },
     "window": {
         "csd": true,
-        "opacity": 0.9,
+        "opacity": 0.98,
         "rounding": 10
     }
 }

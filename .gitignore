@@ -7,3 +7,8 @@
 .config/gtk-3.0/colors.css
 .config/gtk-4.0/colors.css
 .config/hypr/colors.conf
+AGENTS.md
+agents.config.json
+.nanocoder/commands/refactor.md
+.nanocoder/commands/review.md
+.nanocoder/commands/test.md

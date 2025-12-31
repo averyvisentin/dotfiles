@@ -15,3 +15,7 @@ alias shutdown='systemctl poweroff'
 alias ollama-restart="systemctl --user restart ollama.service"
 alias ollama-start="systemctl --user start ollama.service"
 alias ollama-stop="systemctl --user stop ollama.service"
+
+alias nano="micro"
+
+alias yer="yay -Syyu ; flatpak update"

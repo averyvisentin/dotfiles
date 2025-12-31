@@ -6,5 +6,6 @@
   "IS_MAXIMIZED": true,
   "IS_MINIMIZED": false,
   "SKIP_HOST_UPDATE": true,
-  "OPEN_ON_STARTUP": false
+  "OPEN_ON_STARTUP": false,
+  "asyncVideoInputDeviceInit": false
 }

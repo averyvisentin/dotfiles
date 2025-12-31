@@ -3,7 +3,7 @@
 # -----------------------------------------------------
 
 # To customize prompt, https://ohmyposh.dev/docs/themes
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/EDM115-oneline.omp.json)" #we're going to fix this later
+#eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)" #we're going to fix this later
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

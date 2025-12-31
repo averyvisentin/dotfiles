@@ -23,7 +23,7 @@ configuration {
 }
 
 /* ---- Load pywal colors (custom wal template) ---- */
-@theme "~/.cache/wal/colors-rofi-pywal.rasi"
+//@theme "~/.cache/wal/colors-rofi-pywal.rasi"
 
 * {
     bg0:    #212121F2;
@@ -122,3 +122,7 @@ element-icon {
 element-text {
     text-color: inherit;
 }
+
+//@theme "/usr/share/rofi/themes/launchpad.rasi"
+
+@theme "/usr/share/rofi/themes/rounded-gray-dark.rasi"

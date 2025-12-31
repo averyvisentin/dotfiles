@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
+import json
 import os
 import random
 import subprocess
 import sys
-import json
 from typing import Any, Dict
 
 
@@ -26,29 +26,6 @@ def find_wallpapers(wallpaper_dir):
             if any(file.lower().endswith(ext) for ext in supported_extensions):
                 wallpaper_files.append(os.path.join(root, file))
     return wallpaper_files
-
-
-def run_command_silently(command):
-    """
-    Runs a shell command silently and checks for errors.
-
-    Args:
-        command (list): The command and its arguments as a list of strings.
-
-    Returns:
-        bool: True if the command was successful, False otherwise.
-    """
-    try:
-        # Using subprocess.run to execute external commands.
-        # check=True will raise a CalledProcessError if the command returns a non-zero exit code.
-        # stdout and stderr are redirected to DEVNULL to suppress all output.
-        subprocess.run(
-            command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-        )
-        return True
-    except (FileNotFoundError, subprocess.CalledProcessError):
-        # If the command is not found or fails, return False.
-        return False
 
 
 def update_hyprlock_conf(wallpaper_path):
@@ -100,31 +77,16 @@ def main():
         sys.exit(1)
 
     # Select a random wallpaper from the list
-    chosen_wallpaper = random.choice(
-        all_wallpapers
-    )  # --- Step 1: Run sww to set wallpaper since hyprpanel is inconsistent
-    run_command_silently(["hyprpanel", "setWallpaper", chosen_wallpaper])
-    run_command_silently(["swww", "img", chosen_wallpaper])
+    chosen_wallpaper = random.choice(all_wallpapers)
+    subprocess.run(["hyprpanel", "setWallpaper", chosen_wallpaper])
+    subprocess.run(["waypaper", "--wallpaper", chosen_wallpaper])
 
-    # --- Step 2: Run wal to set colors
-
-    run_command_silently(
-        [
-            "matugen",
-            "image",
-            chosen_wallpaper,
-            "-t",
-            "scheme-content",
-            "-m",
-            "dark",
-            "-s",
-            "expressive",
-        ]
-    )
-    # run_command_silently(["wal", "-n", "--cols16", "-i", chosen_wallpaper])
+    # subprocess.run(["wal", "-n", "--cols16", "-i", chosen_wallpaper])
+    # subprocess.run(["swww", "img", "-a", "--transition-duration", "1", chosen_wallpaper])
 
     # --- Step 5: Update hyprlock configuration
     update_hyprlock_conf(chosen_wallpaper)
+    subprocess.run(["sh", "dotfiles/scripts/hyprpanel-random-theme.sh"])
     sys.exit(0)
 
 

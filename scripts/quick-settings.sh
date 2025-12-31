@@ -2,26 +2,27 @@
 
 # Define the menu items (each on a new line)
 MENU_ITEMS="pkill
-files
+set-theme
 lms
 edit-dotfiles
 gamemode
-change-theme
-open-app-info
+settings
+random-theme
 system-monitors
 hyprland-wiki
 nv-readme"
 # Submenu definitions
 MONITOR_ITEMS="btop
 nvtop
-htop"
+htop
+hyprctl-info"
 LMS_ITEMS="lmstudio
 lms-server"
 
 # Use dmenu to present the options and capture the user's choice.
 # -l 10: sets the number of lines to display
 # -p "Run Command:": sets the prompt text
-CHOICE=$(echo -e "$MENU_ITEMS" | rofi -window-title "rofi" -click-to-exit true -dmenu -p "Select a shortcut" -no-lazy-grab -normal-window)
+CHOICE=$(echo -e "$MENU_ITEMS" | dmenu -p "Select a shortcut" -no-lazy-grab -normal-window)
 
 # Check which option the user selected
 case "$CHOICE" in
@@ -34,17 +35,10 @@ case "$CHOICE" in
         btop)
             uwsm app -s b -- kitty -e "btop"
         ;;
-        change-theme)
+        random-theme)
             uwsm app -s b -- python $HOME/.config/hypr/scripts/ch-wall.py
         ;;
-        open-app-info)
-            uwsm app -s b -- kitty -T "hyprctl-clients" sh -c '
-                            echo "--- Running Hyprctl clients ---";
-                            hyprctl clients; # <-- Your command is now here
-                            echo "--- Command finished. Press Enter to close. ---";
-                            read -r;
-                        ' &
-        ;;
+
         nvtop)
             uwsm app -s b -- kitty -e "nvtop"
         ;;
@@ -66,6 +60,14 @@ case "$CHOICE" in
                             ;;
                         htop)
                             uwsm app -s b -- kitty -e "htop"
+                            ;;
+                        hyprctl-info)
+                            uwsm app -s b -- kitty -T "hyprctl-clients" sh -c '
+                                            echo "--- Running Hyprctl clients ---";
+                                            hyprctl clients && hyprctl layers; # <-- Your command is now here
+                                            echo "--- Command finished. Press Enter to close. ---";
+                                            read -r;
+                                            ' &
                             ;;
                         *)
                             # Handle empty selection or pressing Escape in the submenu
@@ -130,10 +132,16 @@ case "$CHOICE" in
             rofi -show filebrowser -config .config/rofi/config.rasi -p "Shift+Enter to open"
         ;;
         nv-readme)
-            sh -e "$HOME/dotfiles/scripts/nvidia-readme.sh"
+            uwsm app -s b -- sh -e "$HOME/dotfiles/scripts/nvidia-readme.sh"
         ;;
         gamemode)
             sh -e "$HOME/.config/hypr/scripts/gamemode.sh"
+        ;;
+        set-theme)
+            sh -e "$HOME/dotfiles/scripts/hyprpanel-theme.sh"
+        ;;
+        settings)
+            sh -e "$HOME/dotfiles/scripts/settings.sh"
         ;;
     *)
         # Handle empty selection or pressing Escape
