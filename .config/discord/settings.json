@@ -7,5 +7,6 @@
   "IS_MINIMIZED": false,
   "SKIP_HOST_UPDATE": true,
   "OPEN_ON_STARTUP": false,
-  "asyncVideoInputDeviceInit": false
+  "asyncVideoInputDeviceInit": false,
+  "enableLibOpenH264Electron": false
 }
