@@ -8,5 +8,6 @@
   "SKIP_HOST_UPDATE": true,
   "OPEN_ON_STARTUP": false,
   "asyncVideoInputDeviceInit": false,
-  "enableLibOpenH264Electron": false
+  "enableLibOpenH264Electron": true,
+  "openH264Enabled": true
 }

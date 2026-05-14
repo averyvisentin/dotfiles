@@ -79,14 +79,14 @@ def main():
     # Select a random wallpaper from the list
     chosen_wallpaper = random.choice(all_wallpapers)
     subprocess.run(["hyprpanel", "setWallpaper", chosen_wallpaper])
-    subprocess.run(["waypaper", "--wallpaper", chosen_wallpaper])
+    #subprocess.run(["waypaper", "--wallpaper", chosen_wallpaper])
 
     # subprocess.run(["wal", "-n", "--cols16", "-i", chosen_wallpaper])
     # subprocess.run(["swww", "img", "-a", "--transition-duration", "1", chosen_wallpaper])
-
+    subprocess.run(["hyprpaper", chosen_wallpaper])
     # --- Step 5: Update hyprlock configuration
     update_hyprlock_conf(chosen_wallpaper)
-    subprocess.run(["sh", "dotfiles/scripts/hyprpanel-random-theme.sh"])
+    #subprocess.run(["sh", "dotfiles/scripts/hyprpanel-random-theme.sh"])
     sys.exit(0)
 
 
