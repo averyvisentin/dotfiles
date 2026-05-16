@@ -23,6 +23,20 @@
 
 
 
+
+-- ---------------------------------------------------
+-- Autostart
+-- - --------------------------------------------------
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("uwsm app -s b -- wayle panel start")
+--   hl.exec_cmd("uwsm app -s b -- hyprpm reload")
+  hl.exec_cmd("wl-paste --watch cliphist store ") -- #clipboard
+  hl.exec_cmd("hypridle")
+  hl.exec_cmd("sleep 5 && hyprctl reload")
+end)
+
+
 ------------------
 ---- MONITORS ----
 ------------------
@@ -41,15 +55,7 @@ hl.monitor({
     scale = 1
 })
 
--- ---------------------------------------------------
--- Autostart
--- - --------------------------------------------------
 
-hl.on("hyprland.start", function ()
-  hl.exec_cmd("uwsm app -s b -- wayle panel start")
---   hl.exec_cmd("uwsm app -s b -- hyprpm reload")
-  hl.exec_cmd("wl-paste --watch cliphist store ") -- #clipboard
-end)
 
 --# -----------------------------------------------------
 --# General window decoration
@@ -63,13 +69,14 @@ hl.config ({
         resize_on_border = true,
         extend_border_grab_area = 5,
         hover_icon_on_border = true,
+        layout = "dwindle",
     },
 
     decoration = {
         rounding = 10,
         rounding_power = 2,
         active_opacity = 1.0,
-        inactive_opacity = 0.85,
+        inactive_opacity = 0.95,
         fullscreen_opacity = 1.0,
         border_part_of_window = true,
 
@@ -97,7 +104,7 @@ hl.config({
         numlock_by_default = true,
         mouse_refocus = true,
         accel_profile = flat,
-        off_window_axis_events = 1,
+        off_window_axis_events = false,
         follow_mouse = 1,
         scroll_factor = 3,
     },
@@ -105,7 +112,8 @@ hl.config({
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
         vrr = 0,
-        mouse_move_enables_dpms = false,
+        initial_workspace_tracking = false,
+        mouse_move_enables_dpms = true,
         key_press_enables_dpms = true,
         animate_manual_resizes = true,
         animate_mouse_windowdragging = false,
@@ -123,8 +131,33 @@ hl.config({
     opengl = {
         nvidia_anti_flicker = true,
     },
+    cursor = {
+        no_hardware_cursors = 1,
+        hotspot_padding = 2,
+
+    },
+
 })
 
+---------------------
+--- LAYOUTS----------
+---------------------
+
+hl.config({
+  dwindle = {
+      force_split                  = 0,
+      preserve_split               = true,
+      smart_split                  = true,
+      smart_resizing               = true,
+      permanent_direction_override = false,
+      special_scale_factor         = 1,
+      split_width_multiplier       = 1.0,
+      use_active_for_splits        = true,
+      default_split_ratio          = 1.0,
+      split_bias                   = 0,
+      precise_mouse_move           = false,
+  },
+})
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -142,6 +175,7 @@ local notes       = "obsidian"
 
 hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- kitty"))
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("vicinae toggle"))
+hl.bind("SUPER + CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- $HOME/dotfiles/scripts/quick-settings.sh"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("uwsm app -- dolphin"))
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- kitty -e yazi"))

@@ -13,7 +13,8 @@ local taskManager = "missioncenter"
 local notes       = "obsidian"
 
 hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- "terminal))
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("vicinae toggle")
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("vicinae toggle"))
+hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- $HOME/dotfiles/scripts/quick-settings.sh"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- "browser))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("uwsm app -- "fileManager))
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- kitty -e yazi"))
