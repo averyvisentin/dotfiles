@@ -23,19 +23,6 @@
       "system_info": false
    },
    "providers": {
-      "@sovereign/store.vicinae.swww-switcher": {
-         "preferences": {
-            "colorGenTool": "none",
-            "gridRows": "4",
-            "postProduction": "no",
-            "showImageDetails": true,
-            "toggleVicinaeSetting": true,
-            "transitionDuration": "3",
-            "transitionStep": "90",
-            "transitionType": "random",
-            "wallpaperPath": "/home/avery/wallpaper/"
-         }
-      },
       "applications": {
          "preferences": {
             "defaultAction": "launch",

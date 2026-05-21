@@ -172,18 +172,19 @@ local textEditor  = "kate"
 local volumemixer = "pavucontrol"
 local taskManager = "missioncenter"
 local notes       = "obsidian"
+local emoji       = "smile"
 
-hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- kitty"))
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("vicinae toggle"))
+hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(menu .. " toggle"))
 hl.bind("SUPER + CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- $HOME/dotfiles/scripts/quick-settings.sh"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- zen-browser"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd("uwsm app -- dolphin"))
-hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- kitty -e yazi"))
-hl.bind("SUPER + Y", hl.dsp.exec_cmd("uwsm app -- zeditor"))
-hl.bind("SUPER + K", hl.dsp.exec_cmd("uwsm app -- kate"))
-hl.bind("SUPER + U", hl.dsp.exec_cmd("uwsm app -- obsidian"))
-hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("uwsm app -- missioncenter"))
-hl.bind("SUPER + CTRL + E", hl.dsp.exec_cmd("uwsm app -- smile"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- " .. browser))
+hl.bind("SUPER + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
+hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- " .. terminal .. " -e yazi"))
+hl.bind("SUPER + Y", hl.dsp.exec_cmd("uwsm app -- " .. codeEditor))
+hl.bind("SUPER + K", hl.dsp.exec_cmd("uwsm app -- " .. textEditor))
+hl.bind("SUPER + U", hl.dsp.exec_cmd("uwsm app -- " .. notes))
+hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("uwsm app -- " .. taskManager))
+hl.bind("SUPER + CTRL + E", hl.dsp.exec_cmd("uwsm app -- " .. emoji))
 
 --------------------------
 --- WINDOW MANAGEMENT ----
@@ -221,6 +222,7 @@ hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("hyprshot -m output -m DP-2"))
 
 hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("SUPER + CTRL + R", hl.dsp.exec_cmd("wayle wallpaper next"))
 
 ---Mouse Actions
 
@@ -268,6 +270,7 @@ hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 
  ----------------------
 
  --hl.window_rule({match = {float = true}, move = {cursor_x, cursor_y}})
+
 
  hl.window_rule({match = {class = "org.gnome.Calculator"}, float = true})
 
