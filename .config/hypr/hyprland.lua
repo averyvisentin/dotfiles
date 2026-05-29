@@ -9,21 +9,17 @@
 --# Load configuration files
  -----------------------------------------------------
 
+ --require("conf.keybinds")
+ --require("conf.windowrule")
+ --require("conf.animations")
+
 
 --source = ~/.config/hypr/colors.conf
 --source = ~/.config/hypr/conf/workspace.conf
 --source = ~/.config/hypr/conf/keybinding.conf
---require("conf.keybinds")
---require("conf.windowrule")
---require("conf.animations")
-
 --source = ~/.config/hypr/conf/windowrule.conf
 --source = ~/.config/hypr/conf/animations/animations-dynamic.conf
 --source = ~/.config/hypr/conf/plugins.conf
-
-
-
-
 -- ---------------------------------------------------
 -- Autostart
 -- - --------------------------------------------------
@@ -57,9 +53,10 @@ hl.monitor({
 
 
 
---# -----------------------------------------------------
---# General window decoration
---# ------------------------------------------------------
+------------------------------------
+--- General window decoration
+------------------------------------
+-- see https://wiki.hypr.land/Configuring/Basics/Variables/
 
 hl.config ({
     general = {
@@ -145,7 +142,7 @@ hl.config({
 
 hl.config({
   dwindle = {
-      force_split                  = 0,
+      force_split                  = 0, --0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom)
       preserve_split               = true,
       smart_split                  = true,
       smart_resizing               = true,
@@ -154,7 +151,7 @@ hl.config({
       split_width_multiplier       = 1.0,
       use_active_for_splits        = true,
       default_split_ratio          = 1.0,
-      split_bias                   = 0,
+      split_bias                   = 0, --specifies which window will receive the split ratio. 0 -> directional (the top or left window), 1 -> the current window
       precise_mouse_move           = false,
   },
 })
@@ -191,8 +188,8 @@ hl.bind("SUPER + CTRL + E", hl.dsp.exec_cmd("uwsm app -- " .. emoji))
 --------------------------
 --- CLOSE AND Kill
 hl.bind("SUPER + Q", hl.dsp.window.close(active))
-hl.bind("SUPER + ALT_R + Q", hl.dsp.window.kill(active))
-hl.bind("SUPER + ALT_L + Q", hl.dsp.exec_cmd("hyprctl kill"))
+--hl.bind("SUPER + ALT_R + Q", hl.dsp.window.kill(active))
+--hl.bind("SUPER + ALT_L + Q", hl.dsp.exec_cmd("hyprctl kill"))
 
 --- FULLSCREEN + FLOATING
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({action = "toggle"}))
@@ -215,19 +212,19 @@ hl.bind("SUPER + ALT + down", hl.dsp.window.move({ direction = "down" }))
 --- Utilities ----
 ------------------
 
-hl.bind("SUPER + O", hl.dsp.exec_cmd("hyprshot -m region --raw - | magick - -resize 300% -colorspace gray -auto-level -compress none png:- | tesseract stdin stdout | wl-copy"))
-hl.bind("SUPER + A", hl.dsp.exec_cmd("hyprshot -z -m region"))
-hl.bind("SUPER + ALT + P", hl.dsp.exec_cmd("hyprshot -m output -m DP-1"))
-hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("hyprshot -m output -m DP-2"))
+hl.bind("SUPER + O", hl.dsp.exec_cmd("hyprshot -m region --raw - | magick - -resize 300% -colorspace gray -auto-level -compress none png:- | tesseract stdin stdout | wl-copy")) --take screenshot of region and copies all text in the screenshot to clipboard
+hl.bind("SUPER + A", hl.dsp.exec_cmd("hyprshot -z -m region")) --normal region screenshot
+hl.bind("SUPER + ALT + P", hl.dsp.exec_cmd("hyprshot -m output -m DP-1")) --screenshot of primary monitor
+hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("hyprshot -m output -m DP-2")) --screenshot of secondary monitor
 
-hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"))
-hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
-hl.bind("SUPER + CTRL + R", hl.dsp.exec_cmd("wayle wallpaper next"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history")) --open vicinae clipboard history
+hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock")) --lock screen
+hl.bind("SUPER + CTRL + R", hl.dsp.exec_cmd("wayle wallpaper next")) --change wallpaper
 
 ---Mouse Actions
 
-hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true }) --drag window
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true }) --resize window
 
 
 ---Media

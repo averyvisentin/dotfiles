@@ -12,3 +12,8 @@ agents.config.json
 .nanocoder/commands/refactor.md
 .nanocoder/commands/review.md
 .nanocoder/commands/test.md
+.config/gtk-3.0/colors.css
+.config/gtk-4.0/colors.css
+.config/hypr/colors.conf
+.config/kitty/colors-matugen.conf
+.config/qt6ct/colors/matugen.conf

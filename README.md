@@ -12,7 +12,7 @@ This repository contains my personal dotfiles. They are primarily built for a se
 
 These dotfiles began as a fork of the [ml4w dots](https://github.com/mylinuxforwork/dotfiles) but have since been heavily modified to suit my own workflow and preferences. Inspiration is being drawn from everywhere.
 
-Vicinae and hyprpanel are doing a lot of the heavy lifting in this setup.
+Vicinae and wayle are doing a lot of the heavy lifting in this setup.
 
 We are using UWSM so you'll be seeing a lot of ```uwsm app --``` and ```uwsm app -s b --```. I like uwsm because it keeps everything managed by systemd so they can be easily managed as slices.
 
@@ -26,10 +26,10 @@ The core of this setup is the [Hyprland](https://hyprland.org/) Wayland composit
 
 * **hyprbars**: For window title bars.
 * **hyprexpo**: For a workspace overview.
-* **hyprpanel**: For general shell stuff, notifications, top bar, **swww wallpapering**, **matugen colours**
+* **wayle**: For general shell stuff, notifications, top bar, wallpaper management, and color scheme generation (it's actually matugen but whatever).
 * **vicinae**: To launch apps, act as clipboard (wl-paste), **dmenu** scripts
 * **hyprlock and hypridle**: To handle lock screen and idle state.
-* **ly**: For the login manager.
+* **ly**: For the display manager.
 
 ---
 
