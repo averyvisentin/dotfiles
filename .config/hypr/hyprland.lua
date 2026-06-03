@@ -502,40 +502,40 @@ hl.config { plugin = { dynamic_cursors = {
 }}}
 
 
-hl.config({
-    plugin = {
-        hyprbars = {
-            bar_blur = true,
-            bar_buttons_alignment = right,
-            bar_text_align = left,
-            bar_part_of_window = true,
-            --bar_color = $background,
-            bar_precedence_over_border = true,
-            bar_height = 17,
-            bar_padding = 20,
-            bar_title_enabled = true,
-            --title_color = $on_background,
-            bar_text_size = 7,
-            on_double_click = "hyprctl dispatch togglefloating",
-            --hyprbars-button = $error, 10, , "hyprctl dispatch closewindow activewindow #we want to close gracefully",
-            --hyprbars-button = $tertiary, 10, , "hyprctl dispatch movetoworkspacesilent empty",
-            --hyprbars-button = $outline, 10, , "hyprctl dispatch fullscreenstate 1",
-        },
-    },
-})
+--hl.config({
+--    plugin = {
+--        hyprbars = {
+--            bar_blur = true,
+--            bar_buttons_alignment = right,
+--            bar_text_align = left,
+--            bar_part_of_window = true,
+--            --bar_color = $background,
+--            bar_precedence_over_border = true,
+--            bar_height = 17,
+--            bar_padding = 20,
+--            bar_title_enabled = true,
+--            --title_color = $on_background,
+--            bar_text_size = 7,
+--            --on_double_click = "hyprctl dispatch togglefloating",
+--            --hyprbars-button = $error, 10, , "hyprctl dispatch closewindow activewindow #we want to close gracefully",
+--            --hyprbars-button = $tertiary, 10, , "hyprctl dispatch movetoworkspacesilent empty",
+--            --hyprbars-button = $outline, 10, , "hyprctl dispatch fullscreenstate 1",
+--        },
+--    },
+--})
 
-hl.plugin.hyprbars.add_button({
-    bg_color = "rgb(ff4040)",
-    fg_color = "rgb(ffffff)",
-    size = 10,
-    icon = "X",
-    action = "hyprctl dispatch killactive",
-})
+--hl.plugin.hyprbars.add_button({
+--    bg_color = "rgb(ff4040)",
+--    fg_color = "rgb(ffffff)",
+--    size = 10,
+--    icon = "X",
+--    action = "hyprctl dispatch killactive",
+--})
 
-hl.plugin.hyprbars.add_button({
-    bg_color = "rgb(eeee11)",
-    fg_color = "rgb(000000)",
-    size = 10,
-    icon = "_",
-    action = "hyprctl dispatch fullscreen 1",
-})
+--hl.plugin.hyprbars.add_button({
+--    bg_color = "rgb(eeee11)",
+--    fg_color = "rgb(000000)",
+--    size = 10,
+--    icon = "_",
+--    action = "hyprctl dispatch fullscreen 1",
+--})
