@@ -28,8 +28,10 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("uwsm app -s b -- wayle panel start")
 --   hl.exec_cmd("uwsm app -s b -- hyprpm reload")
   hl.exec_cmd("wl-paste --watch cliphist store ") -- #clipboard
-  hl.exec_cmd("hypridle")
-  hl.exec_cmd("sleep 5 && hyprctl reload")
+    hl.exec_cmd("hypridle")
+
+    hl.exec_cmd("sleep 5 && hyprctl reload")
+    hl.exec_cmd("hyprpm reload")
 end)
 
 
@@ -39,14 +41,14 @@ end)
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
 hl.monitor({
-     output = "DP-1",
-      mode = "1920x1080@144",
+     output = "DP-2",
+      mode = "1920x1080@120",
      position = "0x0",
       scale = 1
     })
 hl.monitor({
-    output = "DP-2",
-    mode = "2560x1440@74",
+    output = "DP-1",
+    mode = "2560x1440@60",
     position = "-2560x0",
     scale = 1
 })
@@ -174,7 +176,7 @@ local emoji       = "smile"
 hl.bind("SUPER + T", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(menu .. " toggle"))
 hl.bind("SUPER + CTRL + SPACE", hl.dsp.exec_cmd("uwsm app -- $HOME/dotfiles/scripts/quick-settings.sh"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- " .. browser))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("uwsm app -- " .. browser .. " --blank-window"))  --zen for some reason syncs tabs across windows
 hl.bind("SUPER + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- " .. terminal .. " -e yazi"))
 hl.bind("SUPER + Y", hl.dsp.exec_cmd("uwsm app -- " .. codeEditor))
@@ -372,6 +374,47 @@ hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 
 -------------------
 
 
+
+
+
+hl.config({
+    plugin = {
+        hyprbars = {
+            bar_blur = true,
+            bar_buttons_alignment = right,
+            bar_text_align = left,
+            bar_part_of_window = true,
+            --bar_color = $background,
+            bar_precedence_over_border = true,
+            bar_height = 17,
+            bar_padding = 20,
+            bar_title_enabled = true,
+            --title_color = $on_background,
+            bar_text_size = 7,
+            --on_double_click = "hyprctl dispatch togglefloating",
+            --hyprbars-button = $error, 10, , "hyprctl dispatch closewindow activewindow #we want to close gracefully",
+            --hyprbars-button = $tertiary, 10, , "hyprctl dispatch movetoworkspacesilent empty",
+            --hyprbars-button = $outline, 10, , "hyprctl dispatch fullscreenstate 1",
+        },
+    },
+})
+
+hl.plugin.hyprbars.add_button({
+    bg_color = "rgb(ff4040)",
+    fg_color = "rgb(ffffff)",
+    size = 10,
+    icon = "X",
+    action = "hyprctl dispatch killactive",
+})
+
+hl.plugin.hyprbars.add_button({
+    bg_color = "rgb(eeee11)",
+    fg_color = "rgb(000000)",
+    size = 10,
+    icon = "_",
+    action = "hyprctl dispatch fullscreen 1",
+})
+
 hl.config { plugin = { dynamic_cursors = {
 
     -- enables the plugin
@@ -500,42 +543,3 @@ hl.config { plugin = { dynamic_cursors = {
         fallback = "clientside",
     },
 }}}
-
-
---hl.config({
---    plugin = {
---        hyprbars = {
---            bar_blur = true,
---            bar_buttons_alignment = right,
---            bar_text_align = left,
---            bar_part_of_window = true,
---            --bar_color = $background,
---            bar_precedence_over_border = true,
---            bar_height = 17,
---            bar_padding = 20,
---            bar_title_enabled = true,
---            --title_color = $on_background,
---            bar_text_size = 7,
---            --on_double_click = "hyprctl dispatch togglefloating",
---            --hyprbars-button = $error, 10, , "hyprctl dispatch closewindow activewindow #we want to close gracefully",
---            --hyprbars-button = $tertiary, 10, , "hyprctl dispatch movetoworkspacesilent empty",
---            --hyprbars-button = $outline, 10, , "hyprctl dispatch fullscreenstate 1",
---        },
---    },
---})
-
---hl.plugin.hyprbars.add_button({
---    bg_color = "rgb(ff4040)",
---    fg_color = "rgb(ffffff)",
---    size = 10,
---    icon = "X",
---    action = "hyprctl dispatch killactive",
---})
-
---hl.plugin.hyprbars.add_button({
---    bg_color = "rgb(eeee11)",
---    fg_color = "rgb(000000)",
---    size = 10,
---    icon = "_",
---    action = "hyprctl dispatch fullscreen 1",
---})
