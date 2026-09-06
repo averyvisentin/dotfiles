@@ -3,7 +3,7 @@
 @define-color window_fg_color rgba(231, 231, 231, 1.00);
 
 @define-color view_bg_color rgba(39, 39, 39, 1.00);
-@define-color view_fg_color rgba(248, 248, 248, 1.00);
+@define-color view_fg_color rgba(255, 255, 255, 1.00);
 
 @define-color headerbar_bg_color rgba(27, 27, 27, 1.00);
 @define-color headerbar_fg_color rgba(231, 231, 231, 1.00);
@@ -11,7 +11,7 @@
 @define-color headerbar_backdrop_color rgba(27, 27, 27, 1.00);
 
 @define-color sidebar_bg_color rgba(39, 39, 39, 1.00);
-@define-color sidebar_fg_color rgba(248, 248, 248, 1.00);
+@define-color sidebar_fg_color rgba(255, 255, 255, 1.00);
 @define-color sidebar_shade_color rgba(0, 0, 0, 0.08);
 @define-color sidebar_backdrop_color rgba(56, 56, 56, 1.00);
 
@@ -27,7 +27,7 @@
 @define-color thumbnail_fg_color rgba(192, 192, 192, 1.00);
 
 @define-color dialog_bg_color rgba(39, 39, 39, 1.00);
-@define-color dialog_fg_color rgba(248, 248, 248, 1.00);
+@define-color dialog_fg_color rgba(255, 255, 255, 1.00);
 
 @define-color popover_bg_color rgba(46, 46, 46, 1.00);
 @define-color popover_fg_color rgba(192, 192, 192, 1.00);
@@ -35,8 +35,8 @@
 @define-color shade_color rgba(0, 0, 0, 0.32);
 @define-color scrollbar_outline_color rgba(27, 27, 27, 0.50);
 
-@define-color accent_color rgba(202, 186, 180, 1.00);
-@define-color accent_bg_color rgba(202, 186, 180, 1.00);
+@define-color accent_color rgba(255, 156, 177, 1.00);
+@define-color accent_bg_color rgba(255, 156, 177, 1.00);
 @define-color accent_fg_color rgba(0, 0, 0, 1.00);
 
 @define-color destructive_color rgba(253, 161, 160, 1.00);
@@ -51,8 +51,8 @@
 @define-color success_bg_color rgba(146, 207, 156, 1.00);
 @define-color success_fg_color rgba(0, 0, 0, 1.00);
 
-@define-color accent_color rgba(202, 186, 180, 1.00);
-@define-color accent_bg_color rgba(202, 186, 180, 1.00);
+@define-color accent_color rgba(255, 156, 177, 1.00);
+@define-color accent_bg_color rgba(255, 156, 177, 1.00);
 @define-color accent_fg_color rgba(0, 0, 0, 1.00);
 
 @define-color error_color rgba(253, 161, 160, 1.00);

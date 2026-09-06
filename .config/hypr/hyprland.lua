@@ -9,17 +9,8 @@
 --# Load configuration files
  -----------------------------------------------------
 
- --require("conf.keybinds")
- --require("conf.windowrule")
- --require("conf.animations")
+local colors = require("colors")
 
-
---source = ~/.config/hypr/colors.conf
---source = ~/.config/hypr/conf/workspace.conf
---source = ~/.config/hypr/conf/keybinding.conf
---source = ~/.config/hypr/conf/windowrule.conf
---source = ~/.config/hypr/conf/animations/animations-dynamic.conf
---source = ~/.config/hypr/conf/plugins.conf
 -- ---------------------------------------------------
 -- Autostart
 -- - --------------------------------------------------
@@ -69,6 +60,8 @@ hl.config ({
         extend_border_grab_area = 5,
         hover_icon_on_border = true,
         layout = "dwindle",
+        ["col.active_border"] = colors.primary,
+        ["col.inactive_border"] = colors.secondary,
     },
 
     decoration = {
@@ -105,7 +98,7 @@ hl.config({
         accel_profile = flat,
         off_window_axis_events = false,
         follow_mouse = 1,
-        scroll_factor = 3,
+        scroll_factor = 1,
     },
     misc = {
         disable_hyprland_logo = true,
@@ -126,6 +119,7 @@ hl.config({
     xwayland = {
         enabled = true,
         force_zero_scaling = true,
+        create_abstract_socket = true,
     },
     opengl = {
         nvidia_anti_flicker = true,
@@ -134,6 +128,10 @@ hl.config({
         no_hardware_cursors = 1,
         hotspot_padding = 2,
 
+    },
+    render = {
+        direct_scanout = 2, --1 enabled, 2 auto for 'game'
+        new_render_scheduling = true,
     },
 
 })
@@ -150,10 +148,10 @@ hl.config({
       smart_resizing               = true,
       permanent_direction_override = false,
       special_scale_factor         = 1,
-      split_width_multiplier       = 1.0,
+      split_width_multiplier       = 0.5,
       use_active_for_splits        = true,
-      default_split_ratio          = 1.0,
-      split_bias                   = 0, --specifies which window will receive the split ratio. 0 -> directional (the top or left window), 1 -> the current window
+      default_split_ratio          = 0.8,
+      split_bias                   = 1, --specifies which window will receive the split ratio. 0 -> directional (the top or left window), 1 -> the current window
       precise_mouse_move           = false,
   },
 })
@@ -190,8 +188,7 @@ hl.bind("SUPER + CTRL + E", hl.dsp.exec_cmd("uwsm app -- " .. emoji))
 --------------------------
 --- CLOSE AND Kill
 hl.bind("SUPER + Q", hl.dsp.window.close(active))
---hl.bind("SUPER + ALT_R + Q", hl.dsp.window.kill(active))
---hl.bind("SUPER + ALT_L + Q", hl.dsp.exec_cmd("hyprctl kill"))
+hl.bind("CTRL + ALT + DELETE", hl.dsp.exec_cmd("hyprctl kill"))  --click to kill
 
 --- FULLSCREEN + FLOATING
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({action = "toggle"}))
@@ -208,6 +205,13 @@ hl.bind("SUPER + ALT + left", hl.dsp.window.move({ direction = "left" }))
 hl.bind("SUPER + ALT + right", hl.dsp.window.move({ direction = "right" }))
 hl.bind("SUPER + ALT + up", hl.dsp.window.move({ direction = "up" }))
 hl.bind("SUPER + ALT + down", hl.dsp.window.move({ direction = "down" }))
+
+--- WORKSPACE NAVIGATION & MOVEMENT
+-- Switch to workspaces 1-9 and move active window to workspaces 1-9
+for i = 1, 9 do
+    hl.bind("SUPER + SHIFT + " .. tostring(i), hl.dsp.focus({ workspace = tostring(i) }))
+    hl.bind("SUPER +  " .. tostring(i), hl.dsp.window.move({ workspace = tostring(i) }))
+end
 
 
 ------------------
@@ -245,11 +249,11 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),       { locked = tru
 --- Workspaces ---
 -------------------
 
-for i = 1, 4 do
-    local key = { "SUPER + mouse_up", "SUPER + mouse_down" }
-    local keycombos = { key[1], key[2], "CTRL + " .. key[1], "CTRL + " .. key[2] }
-    local prefix = { "+", "-", "r+", "r-" }
-    hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+local keys = { "SUPER + mouse_up", "SUPER + mouse_down" }
+local prefixes = { "r+", "r-" }
+
+for i = 1, 2 do
+    hl.bind(keys[i], hl.dsp.focus({ workspace = prefixes[i] .. "1" }))
 end
 
 hl.curve( "overshoot", { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } } )
@@ -263,7 +267,27 @@ hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 
      bezier = "overshoot",
  })
 
+ hl.workspace_rule({ workspace = "1", monitor = "DP-2", default = true })
 
+ -- ==========================================
+ -- WORKSPACE 2 STARTUP RULES
+ -- ==========================================
+
+ hl.window_rule({
+     match = { class = "^(cpupower-gtk)$" },
+     workspace = "2 silent"
+ })
+
+ hl.window_rule({
+     match = { class = "^(btop_terminal)$" },
+     workspace = "2 silent"
+ })
+
+ hl.on("hyprland.start", function()
+     hl.exec_cmd("cpupower-gtk")
+     hl.exec_cmd("kitty --class btop_terminal -e btop")
+
+ end)
  ----------------------
  --- Window Rules ---
  ----------------------
@@ -271,7 +295,9 @@ hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 
  --hl.window_rule({match = {float = true}, move = {cursor_x, cursor_y}})
 
 
- hl.window_rule({match = {class = "org.gnome.Calculator"}, float = true})
+hl.window_rule({
+    match = { class = "org.gnome.Calculator" },
+     float = true})
 
  hl.window_rule({match = {title = "File Upload"}, float = true, size = {956, 602}})
 
@@ -323,7 +349,7 @@ hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 
 
  -- Browser Picture in Picture
  -- Converted 69.5% and 4% to monitor width/height math
- --hl.window_rule({match = {title = "^(Picture-in-Picture)$"}, float = true, pin = true, size = {"monitor_w*0.695", "monitor_h*0.04"}})
+ hl.window_rule({match = {title = "^(Picture-in-Picture)$"}, float = true, pin = true, size = {"monitor_w*0.695", "monitor_h*0.04"}})
 
  -- Pavucontrol Detailed
  hl.window_rule({match = {class = ".*org.pulseaudio.pavucontrol.*"}, float = true, pin = true, size = {700, 600}})
@@ -399,21 +425,33 @@ hl.config({
     },
 })
 
+-- 1. Button for Closing (Kills window)
 hl.plugin.hyprbars.add_button({
-    bg_color = "rgb(ff4040)",
-    fg_color = "rgb(ffffff)",
+    bg_color = colors.error_container,
+    fg_color = colors.on_error_container,
     size = 10,
     icon = "X",
-    action = "hyprctl dispatch killactive",
+    action = "hyprctl dispatch 'hl.dsp.window.close()'",
 })
 
+-- 3. Fullscreen Button (Example from previous context)
 hl.plugin.hyprbars.add_button({
-    bg_color = "rgb(eeee11)",
-    fg_color = "rgb(000000)",
+    bg_color = colors.on_tertiary_container,
+    fg_color = colors.on_tertiary,
     size = 10,
     icon = "_",
-    action = "hyprctl dispatch fullscreen 1",
+    action = [[hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })']],
 })
+
+-- 2. Button for Minimizing (Moves window silently)
+hl.plugin.hyprbars.add_button({
+    bg_color = colors.on_secondary_container, -- Suggested color for visibility
+    fg_color = colors.on_secondary,
+    size = 10,
+    icon = "-",
+    action = [[hyprctl dispatch 'hl.dispatch(hl.dsp.window.move({ workspace = "empty", follow = false }))']],
+})
+
 
 hl.config { plugin = { dynamic_cursors = {
 
@@ -527,7 +565,7 @@ hl.config { plugin = { dynamic_cursors = {
         -- 0 - never use pixelated scaling
         -- 1 - use pixelated when no highres image
         -- 2 - always use pixelated scaling
-        nearest = 0,
+        nearest = 2,
 
         -- enable dedicated hyprcursor support
         enabled = true,
@@ -535,7 +573,7 @@ hl.config { plugin = { dynamic_cursors = {
         -- resolution in pixels to load the magnified shapes at
         -- be warned that loading a very high-resolution image will take a long time and might impact memory consumption
         -- -1 means we use [normal cursor size] * [shake:base option]
-        resolution = -1,
+        resolution = 1,
 
         -- shape to use when clientside cursors are being magnified
         -- see the shape-name property of shape rules for possible names
