@@ -1,0 +1,98 @@
+[general]
+font-sans = "Adwaita Sans"
+font-mono = "Adwaita Mono"
+
+[bar]
+scale = 0.800000011920929
+padding = 0.5
+module-gap = 0.0
+bg = "transparent"
+background-opacity = 0
+button-variant = "icon-square"
+button-rounding = "none"
+button-gap = 0.8999999761581421
+button-border-width = 2
+
+[[bar.layout]]
+monitor = "DP-1"
+show = true
+left = [
+    "clock",
+    "notifications",
+]
+center = [
+    "hyprland-workspaces",
+    "media",
+]
+right = [
+    "systray",
+    "bluetooth",
+    "network",
+    "microphone",
+    "volume",
+    "hyprsunset",
+    "idle-inhibit",
+    "dashboard",
+]
+
+[[bar.layout]]
+monitor = "DP-2"
+show = true
+left = [
+    "clock",
+    "notifications",
+]
+center = [
+    "hyprland-workspaces",
+    "media",
+]
+right = [
+    "systray",
+    "bluetooth",
+    "network",
+    "microphone",
+    "volume",
+    "hyprsunset",
+    "idle-inhibit",
+    "dashboard",
+]
+
+[styling]
+theme-provider = "matugen"
+
+[modules.dashboard]
+right-click = "hyprctl reload"
+
+[modules.hyprland-workspaces]
+min-workspace-count = 6
+urgent-mode = "application"
+numbering = "relative"
+divider = " - "
+app-icons-show = true
+
+[modules.hyprsunset]
+right-click = "hyprctl reload"
+
+[modules.microphone]
+border-color = "accent"
+icon-bg-color = "accent"
+label-color = "accent"
+right-click = "pavucontrol"
+
+[modules.volume]
+border-color = "accent"
+icon-bg-color = "accent"
+label-color = "accent"
+right-click = "pavucontrol"
+scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+[modules.weather]
+location = "Coconut Creek"
+units = "imperial"
+
+[wallpaper]
+cycling-enabled = true
+cycling-directory = "/home/avery/wallpaper"
+cycling-mode = "shuffle"
+cycling-same-image = true

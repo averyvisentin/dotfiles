@@ -123,7 +123,7 @@ hl.config({
         nvidia_anti_flicker = true,
     },
     cursor = {
-        no_hardware_cursors = 1,
+        no_hardware_cursors = 0,
         hotspot_padding = 2,
 
     },
