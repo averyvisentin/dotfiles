@@ -15,13 +15,11 @@ local colors = require("colors")
 -- Autostart
 -- - --------------------------------------------------
 
-hl.on("hyprland.start", function ()
-  hl.exec_cmd("uwsm app -s b -- wayle panel start")
---   hl.exec_cmd("uwsm app -s b -- hyprpm reload")
-  hl.exec_cmd("wl-paste --watch cliphist store ") -- #clipboard
+hl.on("hyprland.start", function()
+    hl.exec_cmd("uwsm app -s b -- wayle panel start")
+    hl.exec_cmd("wl-paste --watch cliphist store ") -- #clipboard
     hl.exec_cmd("hypridle")
-
-    hl.exec_cmd("sleep 5 && hyprctl reload")
+    hl.exec_cmd("sleep 4 && hyprctl reload")
     hl.exec_cmd("hyprpm reload")
 end)
 
@@ -33,15 +31,15 @@ end)
 
 hl.monitor({
      output = "DP-2",
-      mode = "1920x1080@120",
+      mode = "1920x1080@143",
      position = "0x0",
-      scale = 1
+      scale = 1,
     })
 hl.monitor({
     output = "DP-1",
     mode = "2560x1440@60",
     position = "-2560x0",
-    scale = 1
+    scale = 1,
 })
 
 
@@ -130,8 +128,8 @@ hl.config({
 
     },
     render = {
-        direct_scanout = 2, --1 enabled, 2 auto for 'game'
-        new_render_scheduling = true,
+        direct_scanout = 1, --1 enabled, 2 auto for 'game'
+        new_render_scheduling = false,
     },
 
 })
@@ -398,11 +396,7 @@ hl.window_rule({
 -------------------
 -----PLUGINS-------
 -------------------
-
-
-
-
-
+--[[
 hl.config({
     plugin = {
         hyprbars = {
@@ -410,13 +404,12 @@ hl.config({
             bar_buttons_alignment = right,
             bar_text_align = left,
             bar_part_of_window = true,
-            --bar_color = $background,
+            bar_color = colors.background,
             bar_precedence_over_border = true,
             bar_height = 17,
             bar_padding = 20,
             bar_title_enabled = true,
-            --title_color = $on_background,
-            bar_text_size = 7,
+            bar_text_size = 10,
             --on_double_click = "hyprctl dispatch togglefloating",
             --hyprbars-button = $error, 10, , "hyprctl dispatch closewindow activewindow #we want to close gracefully",
             --hyprbars-button = $tertiary, 10, , "hyprctl dispatch movetoworkspacesilent empty",
@@ -429,7 +422,7 @@ hl.config({
 hl.plugin.hyprbars.add_button({
     bg_color = colors.error_container,
     fg_color = colors.on_error_container,
-    size = 10,
+    size = 12,
     icon = "X",
     action = "hyprctl dispatch 'hl.dsp.window.close()'",
 })
@@ -438,18 +431,18 @@ hl.plugin.hyprbars.add_button({
 hl.plugin.hyprbars.add_button({
     bg_color = colors.on_tertiary_container,
     fg_color = colors.on_tertiary,
-    size = 10,
-    icon = "_",
-    action = [[hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })']],
+    size = 12,
+    icon = "□",
+    action = ([hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })']),
 })
 
 -- 2. Button for Minimizing (Moves window silently)
 hl.plugin.hyprbars.add_button({
     bg_color = colors.on_secondary_container, -- Suggested color for visibility
     fg_color = colors.on_secondary,
-    size = 10,
-    icon = "-",
-    action = [[hyprctl dispatch 'hl.dispatch(hl.dsp.window.move({ workspace = "empty", follow = false }))']],
+    size = 12,
+    icon = "_",
+    action = ([hyprctl dispatch 'hl.dispatch(hl.dsp.window.move({ workspace = "empty", follow = false }))']),
 })
 
 
@@ -553,7 +546,7 @@ hl.config { plugin = { dynamic_cursors = {
 
         -- enable ipc events for shake
         -- see the `ipc` section below
-        ipc = false,
+        ipc = true,
     },
 
     -- use hyprcursor to get a higher resolution texture when the cursor is magnified
@@ -565,7 +558,7 @@ hl.config { plugin = { dynamic_cursors = {
         -- 0 - never use pixelated scaling
         -- 1 - use pixelated when no highres image
         -- 2 - always use pixelated scaling
-        nearest = 2,
+        nearest = 1,
 
         -- enable dedicated hyprcursor support
         enabled = true,
@@ -573,7 +566,7 @@ hl.config { plugin = { dynamic_cursors = {
         -- resolution in pixels to load the magnified shapes at
         -- be warned that loading a very high-resolution image will take a long time and might impact memory consumption
         -- -1 means we use [normal cursor size] * [shake:base option]
-        resolution = 1,
+        resolution =1,
 
         -- shape to use when clientside cursors are being magnified
         -- see the shape-name property of shape rules for possible names
@@ -581,3 +574,29 @@ hl.config { plugin = { dynamic_cursors = {
         fallback = "clientside",
     },
 }}}
+
+---
+---HYPREXPO https://github.com/sandwichfarm/hyprexpo
+---
+hl.config({
+    plugin = {
+        hyprexpo = {
+            columns = 3,
+            rows = 0, -- Follow columns; positive values set fixed-grid rows.
+            gaps_in = 5,
+            gaps_out = 0,
+            bg_col = "rgb(111111)",
+            workspace_method = "center current",
+            gesture_distance = 200,
+            cancel_key = "escape",
+            show_cursor = 1,
+            drag_drop_enable = 0, -- Disable moving windows by dragging workspace previews.
+        },
+    },
+})
+
+hl.bind("ALT + TAB", function()
+    hl.plugin.hyprexpo.expo("toggle")
+end)
+
+--]]

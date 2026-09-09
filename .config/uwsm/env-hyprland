@@ -19,3 +19,5 @@ export SWWW_TRANSITION=wipe
 export HYPRSHOT_DIR=~/Pictures/Screenshots
 export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
+export HYPRCURSOR_THEME=Bibata-Modern-Classic
+export HYPRCURSOR_SIZE=24
