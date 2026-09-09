@@ -22,7 +22,7 @@ Very much a work in progress, but I hope you find it useful. I try to keep it up
 
 ## Hyprland
 
-The core of this setup is the [Hyprland](https://hyprland.org/) Wayland compositor. The configuration is tailored for a multi-monitor setup and leverages `pywal` for dynamic color schemes based on the current wallpaper.
+The core of this setup is the [Hyprland](https://hyprland.org/) Wayland compositor. The configuration is tailored for a multi-monitor setup and leverages `matugen` for dynamic color schemes based on the current wallpaper.
 
 * **hyprbars**: For window title bars.
 * **hyprexpo**: For a workspace overview.
@@ -93,25 +93,5 @@ The core of this setup is the [Hyprland](https://hyprland.org/) Wayland composit
 | `SUPER` + `CTRL` + `(1-0)`|`exec` | Move all windows to workspace 1-10 |
 
 
-![screenshot](./screenshots/s3.png)
-
-**You can also right click the notification icon to open the hyprpanel configurator
----
-
-## HyprPanel
-
-The status bar is [HyprPanel](https://hyprpanel.com/), configured to be a floating and transparent bar at the top of the screen. It integrates with `pywal` and `matugen` for theming. The panel is organized into three sections:
-
-* **Left**: Clock, workspaces, and window title.
-* **Middle**: Notifications, media controls, and update notifications.
-* **Right**: System tray, volume, Bluetooth, and power controls.
-
----
-
-## Other Key Components
-
-* **Alacritty & Kitty**: Pre-configured terminal emulators.
-* **Oh My Posh**: For a customized shell prompt.
-* **GTK & Qt**: Theming for graphical applications.
 ![screenshot](./screenshots/s2.png)
 ![screenshot](./screenshots/s5.png)
