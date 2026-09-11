@@ -15,7 +15,6 @@ export __GL_SHADER_DISK_CACHE_SIZE=10240
 export __GL_GSYNC_ALLOWED=1
 export __GL_IGNORE_GLSL_EXT_REQS=1
 export GCM_CREDENTIAL_STORE=gpg
-export SWWW_TRANSITION=wipe
 export HYPRSHOT_DIR=~/Pictures/Screenshots
 export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
