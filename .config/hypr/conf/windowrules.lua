@@ -58,8 +58,9 @@ hl.window_rule({match = {class = "org.kde.gwenview"}, float = true})
 hl.window_rule({match = {class = "org.kde.okular"}, float = true})
 
 -- Browser Picture in Picture
--- Converted 69.5% and 4% to monitor width/height math
-hl.window_rule({match = {title = "^(Picture-in-Picture)$"}, float = true, pin = true, size = {"monitor_w*0.695", "monitor_h*0.04"}})
+hl.window_rule({ match = { title = "^(Picture-in-Picture)$" }, float = true, pin = true })
+hl.window_rule({match = {title = "^(Picture-in-Picture)$"}, opacity = "100"})
+
 
 -- Pavucontrol Detailed
 hl.window_rule({match = {class = ".*org.pulseaudio.pavucontrol.*"}, float = true, pin = true, size = {700, 600}})

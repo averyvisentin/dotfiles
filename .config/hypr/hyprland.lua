@@ -20,11 +20,15 @@ require("conf/monitors")
 -- - --------------------------------------------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("uwsm app -s b -- wayle panel start")
     hl.exec_cmd("wl-paste --watch cliphist store ") -- #clipboard
     hl.exec_cmd("systemctl --user enable --now hypridle.service")
     hl.exec_cmd("hyprctl reload")
     hl.exec_cmd("hyprpm reload")
+    hl.exec_cmd("uwsm app -- wayle panel start")
+    hl.timer(function()
+        hl.dsp.focus({ workspace = 1 })
+        hl.dispatch(hl.dsp.cursor.move({ x = 960, y = 540 }))
+    end, { timeout = 100, type = "oneshot" })
 end)
 
 -- ==========================================
@@ -36,15 +40,8 @@ hl.window_rule({
     workspace = "2 silent"
 })
 
-hl.window_rule({
-    match = { class = "^(btop_terminal)$" },
-    workspace = "2 silent"
-})
-
 hl.on("hyprland.start", function()
     hl.exec_cmd("cpupower-gtk")
-    hl.exec_cmd("kitty --class btop_terminal -e btop")
-
 end)
 
 
@@ -124,18 +121,19 @@ hl.config({
         create_abstract_socket = true,
     },
     opengl = {
-        nvidia_anti_flicker = true,
+        nvidia_anti_flicker = false,
     },
     cursor = {
-        no_hardware_cursors = 0,
+        no_hardware_cursors = false,
         hotspot_padding = 2,
+        enable_hyprcursor = true,
+        use_cpu_buffer = 1,
 
     },
     render = {
-        direct_scanout = 1, --1 enabled, 2 auto for 'game'
-        new_render_scheduling = false,
+        direct_scanout = 0, --1 enabled, 2 auto for 'game'
+        new_render_scheduling = false,  --triple buffering
     },
-
 })
 
 ---------------------
@@ -173,5 +171,3 @@ hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 
      curve = "rubber",
      bezier = "overshoot",
  })
-
- hl.workspace_rule({ workspace = "1", monitor = "DP-2", default = true })
