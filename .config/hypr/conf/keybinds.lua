@@ -51,14 +51,13 @@ hl.bind("SUPER + ALT + down", hl.dsp.window.move({ direction = "down" }))
 --- WORKSPACE NAVIGATION & MOVEMENT
 -- Switch to workspaces 1-9 and move active window to workspaces 1-9
 for i = 1, 9 do
-    hl.bind("SUPER + SHIFT + " .. tostring(i), hl.dsp.focus({ workspace = tostring(i) }))
+    hl.bind("SUPER + ALT + " .. tostring(i), hl.dsp.focus({ workspace = tostring(i) }))
     hl.bind("SUPER +  " .. tostring(i), hl.dsp.window.move({ workspace = tostring(i) }))
 end
 
-local keys = { "SUPER + mouse_up", "SUPER + mouse_down" }
-local prefixes = { "r+", "r-" }
-
 for i = 1, 2 do
+    local keys = { "SUPER + mouse_up", "SUPER + mouse_down" }
+    local prefixes = { "r-", "r+" }  --switched these so mouse down is + a workspace
     hl.bind(keys[i], hl.dsp.focus({ workspace = prefixes[i] .. "1" }))
 end
 
@@ -91,3 +90,7 @@ hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+
+bind = {
+    { "SUPER", "XF86Fn", "sendshortcut", ", Scroll_Lock, activewindow" },
+}

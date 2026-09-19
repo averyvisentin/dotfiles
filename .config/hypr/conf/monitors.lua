@@ -15,7 +15,7 @@ hl.monitor({
     mode = "2560x1440@60",
     position = "-2560x0",
     scale = "auto",
-    vrr = 1,
+    vrr = 0,
 })
 
  hl.workspace_rule({ workspace = "1", monitor = "DP-1", default = true })
